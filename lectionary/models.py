@@ -24,8 +24,7 @@ class Day(models.Model):
     alt_name = models.CharField(max_length=256, null=True, blank=True)
     service = models.CharField(max_length=256, null=True, blank=True)
     year = models.CharField(max_length=1, choices=Year)
-    season = models.CharField(max_length=2, choices=Season)
-    lessons = models.ManyToManyField("Lesson")
+    season = models.CharField(max_length=2, choices=Season, null=True, blank=True)
 
     class Meta:
         indexes = [models.Index(fields=["name"])]
@@ -43,8 +42,8 @@ class Lesson(models.Model):
     may have alternate readings separated by " or ".
     """
 
-    scripture = models.CharField(max_length=256, unique=True)
-    days = models.ManyToManyField("Day")
+    scripture = models.CharField(max_length=256)
+    day = models.ForeignKey(Day, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.scripture}"

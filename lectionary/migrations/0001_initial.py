@@ -5,33 +5,75 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Day',
+            name="Day",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('alt_name', models.CharField(blank=True, max_length=256, null=True)),
-                ('service', models.CharField(blank=True, max_length=256, null=True)),
-                ('year', models.CharField(choices=[('A', 'Year A'), ('B', 'Year B'), ('C', 'Year C')], max_length=1)),
-                ('season', models.CharField(blank=True, choices=[('AD', 'Advent'), ('CH', 'Christmas'), ('EP', 'Epiphany'), ('LE', 'Lent'), ('EA', 'Easter'), ('PE', 'Pentecost')], max_length=2, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("alt_name", models.CharField(blank=True, max_length=256, null=True)),
+                ("service", models.CharField(blank=True, max_length=256, null=True)),
+                (
+                    "year",
+                    models.CharField(
+                        choices=[("A", "Year A"), ("B", "Year B"), ("C", "Year C")],
+                        max_length=1,
+                    ),
+                ),
+                (
+                    "season",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("AD", "Advent"),
+                            ("CH", "Christmas"),
+                            ("EP", "Epiphany"),
+                            ("LE", "Lent"),
+                            ("EA", "Easter"),
+                            ("PE", "Pentecost"),
+                        ],
+                        max_length=2,
+                        null=True,
+                    ),
+                ),
             ],
             options={
-                'indexes': [models.Index(fields=['name'], name='lectionary__name_3faa50_idx')],
+                "indexes": [
+                    models.Index(fields=["name"], name="lectionary__name_3faa50_idx")
+                ],
             },
         ),
         migrations.CreateModel(
-            name='Lesson',
+            name="Lesson",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('scripture', models.CharField(max_length=256)),
-                ('day', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='lectionary.day')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("scripture", models.CharField(max_length=256)),
+                (
+                    "day",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="lectionary.day"
+                    ),
+                ),
             ],
         ),
     ]

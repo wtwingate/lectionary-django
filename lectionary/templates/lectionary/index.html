@@ -6,6 +6,19 @@
     <title>Lectionary</title>
 </head>
 <body>
-    <h1>hello, world</h1>
+    <h1>Lectionary</h1>
+    <form method="GET">
+        <input type="date" id="start" name="start" />
+        <input type="date" id="end" name="end" />
+        <button type="submit">Submit</button>
+    </form>
+    {% for day in days %}
+        <h2>{{ day.name }}</h2>
+        <ul>
+            {% for lesson in day.lesson_set.all %}
+                <li>{{ lesson.scripture }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 </body>
 </html>

@@ -1,3 +1,3 @@
 # lectionary
 
-Website for the Anglican lectionary.
+Website for the Anglican lectionary

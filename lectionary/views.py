@@ -1,6 +1,6 @@
 import datetime as dt
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from lectionary.models import Day
 from lectionary.services.calendar import get_lectionary_data
@@ -32,8 +32,13 @@ def index(request):
     for datum in lectionary_data:
         year, _, day_list = datum
         for name in day_list:
-            day = Day.objects.filter(name=name, year=year).first()
-            if day is not None:
+            matches = Day.objects.filter(name=name, year=year)
+            for day in matches:
                 days.append(day)
 
     return render(request, "lectionary/index.html", {"days": days})
+
+
+def detail(request, pk):
+    day = get_object_or_404(Day, pk=pk)
+    return render(request, "lectionary/detail.html", {"day": day})

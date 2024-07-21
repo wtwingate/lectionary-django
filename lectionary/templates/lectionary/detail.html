@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ day.name }}</title>
+</head>
+<body>
+    {%if day.service is not None %}
+        <h1>{{ day.name }}: {{ day.service }}</h1>
+    {% else %}
+        <h1>{{ day.name }}</h1>
+    {% endif %}
+    <ul>
+        {% for lesson in day.lesson_set.all %}
+            <li>{{ lesson.scripture }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -4,7 +4,7 @@ import json
 from django.db import migrations
 
 
-def seed_data(apps, _):
+def seed_day_lesson(apps, _):
     Day = apps.get_model("lectionary", "Day")
 
     with open("data/lectionary.json") as f:
@@ -14,22 +14,16 @@ def seed_data(apps, _):
         if day_name == "Christmas Day" or day_name == "Easter Day":
             for service_name, years in val.items():
                 for year_name, lessons in years.items():
-                    day_object = Day(
-                        name=day_name, year=year_name[-1], service=service_name
-                    )
-                    day_object.save()
+                    day = Day(name=day_name, year=year_name[-1], service=service_name)
+                    day.save()
                     for lesson_list in lessons.values():
-                        day_object.lesson_set.get_or_create(
-                            scripture=" or ".join(lesson_list)
-                        )
+                        day.lesson_set.get_or_create(scripture=" or ".join(lesson_list))
         else:
             for year_name, lessons in val.items():
-                day_object = Day(name=day_name, year=year_name[-1])
-                day_object.save()
+                day = Day(name=day_name, year=year_name[-1])
+                day.save()
                 for lesson_list in lessons.values():
-                    day_object.lesson_set.get_or_create(
-                        scripture=" or ".join(lesson_list)
-                    )
+                    day.lesson_set.get_or_create(scripture=" or ".join(lesson_list))
 
 
 class Migration(migrations.Migration):
@@ -38,5 +32,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(seed_data),
+        migrations.RunPython(seed_day_lesson),
     ]

@@ -13,7 +13,7 @@ class Verse(models.Model):
     number = models.IntegerField()
     first_half = models.TextField()
     second_half = models.TextField()
-    psalm = models.ForeignKey(Psalm)
+    psalm = models.ForeignKey(Psalm, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Psalm {self.psalm.number}: {self.number}"
+        return f"Psalm {self.psalm.number}:{self.number}"

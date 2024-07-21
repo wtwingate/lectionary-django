@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from lectionary import views
 
 urlpatterns = [
     path("", views.index, name="index"),

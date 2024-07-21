@@ -2,8 +2,8 @@ import datetime as dt
 
 from django.shortcuts import render
 
-from .models import Day
-from .services.calendar import get_lectionary_data
+from lectionary.models import Day
+from lectionary.services.calendar import get_lectionary_data
 
 
 def index(request):

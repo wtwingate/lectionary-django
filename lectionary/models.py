@@ -30,6 +30,8 @@ class Day(models.Model):
         indexes = [models.Index(fields=["name"])]
 
     def __str__(self):
+        if self.service is not None:
+            return f"{self.name}: {self.service} ({self.year})"
         return f"{self.name} ({self.year})"
 
     def get_absolute_url(self):

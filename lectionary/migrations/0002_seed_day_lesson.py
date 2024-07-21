@@ -17,13 +17,13 @@ def seed_day_lesson(apps, _):
                     day = Day(name=day_name, year=year_name[-1], service=service_name)
                     day.save()
                     for lesson_list in lessons.values():
-                        day.lesson_set.get_or_create(scripture=" or ".join(lesson_list))
+                        day.lesson_set.get_or_create(reference=" or ".join(lesson_list))
         else:
             for year_name, lessons in val.items():
                 day = Day(name=day_name, year=year_name[-1])
                 day.save()
                 for lesson_list in lessons.values():
-                    day.lesson_set.get_or_create(scripture=" or ".join(lesson_list))
+                    day.lesson_set.get_or_create(reference=" or ".join(lesson_list))
 
 
 class Migration(migrations.Migration):

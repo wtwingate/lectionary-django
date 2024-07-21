@@ -67,7 +67,7 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("scripture", models.CharField(max_length=256)),
+                ("reference", models.CharField(max_length=256)),
                 (
                     "day",
                     models.ForeignKey(

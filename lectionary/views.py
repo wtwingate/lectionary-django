@@ -3,7 +3,8 @@ import datetime as dt
 from django.shortcuts import render, get_object_or_404
 
 from lectionary.models import Day
-from lectionary.services.calendar import get_lectionary_data
+from lectionary.services.lectionary import get_lectionary_data
+from lectionary.services.scripture import get_esv_html
 
 
 def index(request):
@@ -41,4 +42,19 @@ def index(request):
 
 def detail(request, pk):
     day = get_object_or_404(Day, pk=pk)
-    return render(request, "lectionary/detail.html", {"day": day})
+
+    lessons = []
+    for lesson in day.lesson_set.all():
+        lessons.append(
+            {
+                "reference": lesson.reference,
+                "scripture": get_esv_html(lesson.reference),
+            }
+        )
+
+    context = {
+        "day": day,
+        "lessons": lessons,
+    }
+
+    return render(request, "lectionary/detail.html", context=context)

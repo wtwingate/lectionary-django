@@ -44,7 +44,7 @@ class Lesson(models.Model):
     may have alternate readings separated by " or ".
     """
 
-    scripture = models.CharField(max_length=256)
+    reference = models.CharField(max_length=256)
     day = models.ForeignKey(Day, on_delete=models.CASCADE)
 
     def __str__(self):

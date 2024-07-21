@@ -12,8 +12,9 @@
         <h1>{{ day.name }}</h1>
     {% endif %}
     <ul>
-        {% for lesson in day.lesson_set.all %}
-            <li>{{ lesson.scripture }}</li>
+        {% for lesson in lessons %}
+            <h2>{{ lesson.reference }}</h2>
+            <div>{{ lesson.scripture | safe }}</div>
         {% endfor %}
     </ul>
 </body>

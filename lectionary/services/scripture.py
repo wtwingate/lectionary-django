@@ -22,13 +22,13 @@ def get_esv_html(reference):
     }
 
     response = requests.get(
-        ESV_TEXT_URL, params=params, headers=headers, timeout=TIMEOUT
+        ESV_HTML_URL, params=params, headers=headers, timeout=TIMEOUT
     )
 
     passages = response.json()["passages"]
 
     if passages:
-        return split_text(passages[0])
+        return passages[0]
     else:
         raise Exception("Error: passage not found")
 

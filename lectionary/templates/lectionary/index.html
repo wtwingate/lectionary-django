@@ -24,7 +24,7 @@
         {% endif %}
         <ul>
             {% for lesson in day.lesson_set.all %}
-                <li>{{ lesson.scripture }}</li>
+                <li>{{ lesson.reference }}</li>
             {% endfor %}
         </ul>
     {% endfor %}

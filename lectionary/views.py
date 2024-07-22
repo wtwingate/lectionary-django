@@ -1,10 +1,11 @@
 import datetime as dt
+import json
 
 from django.shortcuts import render, get_object_or_404
 
 from lectionary.models import Day
 from lectionary.services.lectionary import get_lectionary_data
-from lectionary.services.scripture import get_esv_html
+from lectionary.services.scripture import get_esv_html, get_esv_text
 
 
 def index(request):
@@ -52,9 +53,14 @@ def detail(request, pk):
             }
         )
 
+    texts = json.dumps(
+        [get_esv_text(lesson.reference) for lesson in day.lesson_set.all()]
+    )
+
     context = {
         "day": day,
         "lessons": lessons,
+        "texts": texts,
     }
 
     return render(request, "lectionary/detail.html", context=context)

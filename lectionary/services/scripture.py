@@ -36,7 +36,6 @@ def get_esv_html(reference):
 def get_esv_text(reference):
     params = {
         "q": reference,
-        "include-passage-references": False,
         "include-footnotes": False,
         "include-headings": False,
         "include-short-copyright": False,
@@ -57,10 +56,6 @@ def get_esv_text(reference):
     passages = response.json()["passages"]
 
     if passages:
-        return split_text(passages[0])
+        return passages[0].replace("[", "").replace("]", "")
     else:
         raise Exception("Error: passage not found")
-
-
-def split_text(text):
-    return [p for p in text.splitlines() if p]

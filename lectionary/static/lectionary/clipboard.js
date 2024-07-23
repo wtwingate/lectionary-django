@@ -1,7 +1,7 @@
 copyButton = document.getElementById("copy-button");
 
-copyButton.addEventListener("click", (event) => {
-    writeToClipboard(texts.join(""));
+copyButton.addEventListener("click", () => {
+    writeToClipboard(texts.join("").trim());
     alert("Lessons copied to clipboard!");
 })
 

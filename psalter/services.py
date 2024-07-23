@@ -2,7 +2,7 @@ import re
 
 
 def parse_psalm_num(reference):
-    return re.match(r"Psalm (\d+):.*")[1]
+    return re.match(r"Psalm (\d+):?.*", reference)[1]
 
 
 def parse_verse_nums(reference):
@@ -10,6 +10,9 @@ def parse_verse_nums(reference):
 
     verse_nums = []
     for ref in re.split(ref_regex, reference.split(":")[1]):
+        if ref == "":
+            continue
+
         if "-" in ref:
             start = int(ref.split("-")[0])
             end = int(ref.split("-")[1])

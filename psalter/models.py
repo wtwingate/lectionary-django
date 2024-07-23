@@ -1,5 +1,7 @@
 from django.db import models
 
+from psalter.services import parse_verse_nums
+
 
 class Psalm(models.Model):
     number = models.IntegerField()
@@ -7,6 +9,34 @@ class Psalm(models.Model):
 
     def __str__(self):
         return f"Psalm {self.number}"
+
+    def get_html(self, reference):
+        if ":" in reference:
+            verse_nums = parse_verse_nums(reference)
+        else:
+            verse_nums = [verse.number for verse in self.verse_set.all()]
+
+        verses = []
+        verses.append(f"<h2>{reference}</h2>")
+        for num in verse_nums:
+            verse = self.verse_set.get(number=num)
+            verses.append(
+                f"<p>{verse.number} {verse.first_half} *<br /><em>{verse.second_half}</em></p>"
+            )
+        return "".join(verses)
+
+    def get_text(self, reference):
+        if ":" in reference:
+            verse_nums = parse_verse_nums(reference)
+        else:
+            verse_nums = [verse.number for verse in self.verse_set.all()]
+
+        verses = []
+        verses.append(f"{reference}\n")
+        for num in verse_nums:
+            verse = self.verse_set.get(number=num)
+            verses.append(f"{verse.number} {verse.first_half} *\n{verse.second_half}\n")
+        return "\n".join(verses)
 
 
 class Verse(models.Model):

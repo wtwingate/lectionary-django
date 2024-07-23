@@ -5,29 +5,48 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Psalm',
+            name="Psalm",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.IntegerField()),
-                ('title', models.CharField(max_length=256)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("number", models.IntegerField()),
+                ("title", models.CharField(max_length=256)),
             ],
         ),
         migrations.CreateModel(
-            name='Verse',
+            name="Verse",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.IntegerField()),
-                ('first_half', models.TextField()),
-                ('second_half', models.TextField()),
-                ('psalm', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='psalter.psalm')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("number", models.IntegerField()),
+                ("first_half", models.TextField()),
+                ("second_half", models.TextField()),
+                (
+                    "psalm",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="psalter.psalm"
+                    ),
+                ),
             ],
         ),
     ]

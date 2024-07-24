@@ -1,4 +1,5 @@
 import os
+
 import requests
 
 ESV_HTML_URL = "https://api.esv.org/v3/passage/html/"
@@ -25,10 +26,10 @@ def get_esv_html(reference):
         ESV_HTML_URL, params=params, headers=headers, timeout=TIMEOUT
     )
 
-    passages = response.json()["passages"]
+    passages = "".join(response.json()["passages"])
 
     if passages:
-        return passages[0]
+        return passages
     else:
         raise Exception("Error: passage not found")
 
@@ -53,9 +54,9 @@ def get_esv_text(reference):
         ESV_TEXT_URL, params=params, headers=headers, timeout=TIMEOUT
     )
 
-    passages = response.json()["passages"]
+    passages = "".join(response.json()["passages"])
 
     if passages:
-        return passages[0].replace("[", "").replace("]", "")
+        return passages.replace("[", "").replace("]", "")
     else:
         raise Exception("Error: passage not found")

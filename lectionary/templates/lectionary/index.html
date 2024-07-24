@@ -1,32 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lectionary</title>
-</head>
-<body>
-    <h1>Lectionary</h1>
-    <form method="GET">
-        <input type="date" id="start" name="start" />
-        <input type="date" id="end" name="end" />
-        <button type="submit">Submit</button>
-    </form>
-    {% for day in days %}
-        {%if day.service is not None %}
-            <h2>
-                <a href="{{ day.get_absolute_url }}">{{ day.name }}: {{ day.service }}</a>
-            </h2>
-        {% else %}
-            <h2>
-                <a href="{{ day.get_absolute_url }}">{{ day.name }}</a>
-            </h2>
-        {% endif %}
-        <ul>
-            {% for lesson in day.lesson_set.all %}
-                <li>{{ lesson.reference }}</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lectionary</title>
+        <link rel="stylesheet" href="{% static 'lectionary/style.css' %}">
+    </head>
+    <body>
+        <h1>Lectionary</h1>
+        <form method="GET">
+            <input type="date" id="start" name="start" />
+            <input type="date" id="end" name="end" />
+            <button type="submit">Submit</button>
+        </form>
+        {% for day in days %}
+            {% if day.service is not None %}
+                <h2>
+                    <a href="{{ day.get_absolute_url }}">{{ day.name }}: {{ day.service }}</a>
+                </h2>
+            {% else %}
+                <h2>
+                    <a href="{{ day.get_absolute_url }}">{{ day.name }}</a>
+                </h2>
+            {% endif %}
+            <ul>
+                {% for lesson in day.lesson_set.all %}<li>{{ lesson.reference }}</li>{% endfor %}
+            </ul>
+        {% endfor %}
+    </body>
 </html>

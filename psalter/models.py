@@ -20,7 +20,7 @@ class Psalm(models.Model):
         for num in verse_nums:
             verse = self.verse_set.get(number=num)
             verses.append(
-                f"<p>{verse.number} {verse.first_half} *<br />{verse.second_half}</p>"
+                f"<p><b>{verse.number}</b> {verse.first_half} *<br />&emsp;&emsp;{verse.second_half}</p>"
             )
         return "".join(verses)
 
@@ -34,7 +34,8 @@ class Psalm(models.Model):
         verses.append(f"{reference}\n")
         for num in verse_nums:
             verse = self.verse_set.get(number=num)
-            verses.append(f"{verse.number} {verse.first_half} *\n{verse.second_half}\n")
+            verses.append(
+                f"{verse.number} {verse.first_half} *\n{verse.second_half}\n")
         verses.append
         return "\n".join(verses) + "\n"
 

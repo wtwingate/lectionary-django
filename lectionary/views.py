@@ -1,13 +1,16 @@
 import datetime as dt
 import json
+import re
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 from lectionary.models import Day
 from lectionary.services.lectionary import get_lectionary_data
 from lectionary.services.scripture import get_esv_html, get_esv_text
 from psalter.models import Psalm
 from psalter.services import parse_psalm_num
+
+SHORTER_LESSONS = True
 
 
 def index(request):
@@ -16,7 +19,8 @@ def index(request):
 
     try:
         format = "%Y-%m-%d"
-        start_date = dt.datetime.strptime(request.GET.get("start"), format).date()
+        start_date = dt.datetime.strptime(
+            request.GET.get("start"), format).date()
         end_date = dt.datetime.strptime(request.GET.get("end"), format).date()
     except (TypeError, ValueError):
         pass
@@ -49,18 +53,23 @@ def detail(request, pk):
     lessons = []
     texts = []
     for lesson in day.lesson_set.all():
-        if lesson.reference.startswith("Psalm"):
-            number = parse_psalm_num(lesson.reference)
-            psalm = get_object_or_404(Psalm, number=number)
-            scripture = psalm.get_html(lesson.reference)
-            text = psalm.get_text(lesson.reference)
+        if SHORTER_LESSONS:
+            reference = re.sub(r"\(.*\),?\s*", "", lesson.reference)
         else:
-            scripture = get_esv_html(lesson.reference)
-            text = get_esv_text(lesson.reference)
+            reference = re.sub(r"\(|\)", "", lesson.reference)
+
+        if reference.startswith("Psalm"):
+            number = parse_psalm_num(reference)
+            psalm = get_object_or_404(Psalm, number=number)
+            scripture = psalm.get_html(reference)
+            text = psalm.get_text(reference)
+        else:
+            scripture = get_esv_html(reference)
+            text = get_esv_text(reference)
 
         lessons.append(
             {
-                "reference": lesson.reference,
+                "reference": reference,
                 "scripture": scripture,
             }
         )

@@ -14,18 +14,19 @@
             <input type="date" id="end" name="end" />
             <button type="submit">Submit</button>
         </form>
-        {% for day in days %}
-            {% if day.service is not None %}
+        {% for item in lectionary %}
+            {% if item.day.service is not None %}
                 <h2>
-                    <a href="{{ day.get_absolute_url }}">{{ day.name }}: {{ day.service }}</a>
+                    <a href="{{ item.day.get_absolute_url }}">{{ item.day.name }}: {{ item.day.service }}</a>
                 </h2>
             {% else %}
                 <h2>
-                    <a href="{{ day.get_absolute_url }}">{{ day.name }}</a>
+                    <a href="{{ item.day.get_absolute_url }}">{{ item.day.name }}</a>
                 </h2>
             {% endif %}
+            <p>{{ item.date }}</p>
             <ul>
-                {% for lesson in day.lesson_set.all %}<li>{{ lesson.reference }}</li>{% endfor %}
+                {% for lesson in item.day.lesson_set.all %}<li>{{ lesson.reference }}</li>{% endfor %}
             </ul>
         {% endfor %}
     </body>

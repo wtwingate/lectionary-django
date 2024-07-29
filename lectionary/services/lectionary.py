@@ -4,17 +4,18 @@ from dateutil.easter import easter
 from dateutil.relativedelta import SU, relativedelta
 
 
-def get_lectionary_data(my_date: date) -> tuple[str, str, list[str]]:
+def get_lectionary_data(my_date: date) -> tuple[str, str, list[str]] | None:
     moveable_days = get_moveable_days(my_date)
     liturgical_year = get_liturgical_year(my_date, moveable_days)
     liturgical_season = get_liturgical_season(my_date, moveable_days)
-    liturgical_days = get_liturgical_days(my_date, moveable_days, liturgical_season)
-
-    return (
-        liturgical_year,
-        liturgical_season,
-        list(filter(lambda day: day is not None, liturgical_days)),
+    liturgical_days = list(
+        filter(None, get_liturgical_days(my_date, moveable_days, liturgical_season))
     )
+
+    if len(liturgical_days) == 0:
+        return None
+
+    return (my_date, liturgical_year, liturgical_season, liturgical_days)
 
 
 def get_moveable_days(my_date: date) -> dict[str, date]:

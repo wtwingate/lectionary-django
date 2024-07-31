@@ -1,24 +1,17 @@
+{% extends "lectionary/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ day.name }}</title>
-        <link rel="stylesheet" href="{% static 'lectionary/style.css' %}">
-    </head>
-    <body>
-        {% if day.service is not None %}
-            <h1>{{ day.name }}: {{ day.service }}</h1>
-        {% else %}
-            <h1>{{ day.name }}</h1>
-        {% endif %}
-        <button id="copy-button">Copy lessons to clipboard</button>
-        {% for lesson in lessons %}
-            <h2>{{ lesson.reference }}</h2>
-            <div>{{ lesson.scripture | safe }}</div>
-        {% endfor %}
-        <script>var texts = JSON.parse("{{ texts | escapejs }}");</script>
-        <script src="{% static 'lectionary/clipboard.js' %}"></script>
-    </body>
-</html>
+{% block title %}{{ day.name }}{% endblock %}
+{% block content %}
+    {% if day.service is not None %}
+        <h1 class="text-4xl font-semibold text-red-800">{{ day.name }}: {{ day.service }}</h1>
+    {% else %}
+        <h1 class="text-4xl font-semibold text-red-800">{{ day.name }}</h1>
+    {% endif %}
+    <button id="copy-button">Copy lessons to clipboard</button>
+    {% for lesson in lessons %}
+        <h2 class="text-2xl">{{ lesson.reference }}</h2>
+        <div>{{ lesson.scripture | safe }}</div>
+    {% endfor %}
+    <script>var texts = JSON.parse("{{ texts | escapejs }}");</script>
+    <script src="{% static 'lectionary/clipboard.js' %}"></script>
+{% endblock %}

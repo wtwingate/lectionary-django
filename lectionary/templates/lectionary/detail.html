@@ -3,15 +3,23 @@
 {% block title %}{{ day.name }}{% endblock %}
 {% block content %}
     {% if day.service is not None %}
-        <h1 class="text-4xl font-semibold text-red-800">{{ day.name }}: {{ day.service }}</h1>
+        <h1 class="mb-12 text-5xl text-center font-semibold text-red-800">{{ day.name }}: {{ day.service }}</h1>
     {% else %}
-        <h1 class="text-4xl font-semibold text-red-800">{{ day.name }}</h1>
+        <h1 class="mb-12 text-5xl text-center font-semibold text-red-800">{{ day.name }}</h1>
     {% endif %}
-    <button id="copy-button">Copy lessons to clipboard</button>
+    <button class="block max-w-fit mx-auto mb-12 px-8 py-2 text-neutral-50 bg-red-800 hover:bg-red-900"
+            id="copy-button">Copy lessons to clipboard</button>
     {% for lesson in lessons %}
-        <h2 class="text-2xl">{{ lesson.reference }}</h2>
+        <h2 class="text-2xl mt-8 mb-4 text-red-800">{{ lesson.reference }}</h2>
         <div class="scripture">{{ lesson.scripture | safe }}</div>
     {% endfor %}
+    <p class="mt-12 text-sm italic text-center text-balance">
+        Psalter quotations are from The New Coverdale Psalter Copyright © 2019
+        by the Anglican Church in North America. Other scripture quotations are
+        from The ESV® Bible (The Holy Bible, English Standard Version®), © 2001
+        by Crossway, a publishing ministry of Good News Publishers. Used by
+        permission. All rights reserved.
+    </p>
     <script>var texts = JSON.parse("{{ texts | escapejs }}");</script>
     <script src="{% static 'lectionary/clipboard.js' %}"></script>
 {% endblock %}

@@ -6,7 +6,6 @@ from django.shortcuts import get_object_or_404, render
 
 from lectionary.models import Day
 from lectionary.services.lectionary import get_lectionary_data
-from lectionary.services.scripture import get_esv_html, get_esv_text
 from psalter.models import Psalm
 from psalter.services import parse_psalm_num
 
@@ -59,8 +58,8 @@ def detail(request, pk):
             scripture = psalm.get_html(reference)
             text = psalm.get_text(reference)
         else:
-            scripture = get_esv_html(reference)
-            text = get_esv_text(reference)
+            scripture = lesson.get_html()
+            text = lesson.get_text()
 
         lessons.append(
             {

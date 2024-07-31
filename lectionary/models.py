@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from lectionary.services.scripture import get_esv_html, get_esv_text
+
 
 class Day(models.Model):
     """A model representing a specific holy day within the three-year
@@ -46,6 +48,24 @@ class Lesson(models.Model):
 
     reference = models.CharField(max_length=256)
     day = models.ForeignKey(Day, on_delete=models.CASCADE)
+    esv_html = models.TextField(null=True, blank=True)
+    esv_text = models.TextField(null=True, blank=True)
+
+    def get_html(self):
+        if self.esv_html is None:
+            esv_html = get_esv_html(self.reference)
+            self.esv_html = esv_html
+            self.save()
+
+        return self.esv_html
+
+    def get_text(self):
+        if self.esv_text is None:
+            esv_text = get_esv_text(self.reference)
+            self.esv_text = esv_text
+            self.save()
+
+        return self.esv_text
 
     def __str__(self):
         return f"{self.scripture}"

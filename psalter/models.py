@@ -1,6 +1,7 @@
 from django.db import models
 
 from psalter.services import parse_verse_nums
+from lectionary.services.scripture import long_reference, short_reference
 
 
 class Psalm(models.Model):
@@ -11,6 +12,8 @@ class Psalm(models.Model):
         return f"Psalm {self.number}"
 
     def get_html(self, reference):
+        reference = long_reference(reference)
+
         if ":" in reference:
             verse_nums = parse_verse_nums(reference)
         else:
@@ -20,11 +23,15 @@ class Psalm(models.Model):
         for num in verse_nums:
             verse = self.verse_set.get(number=num)
             verses.append(
-                f"<p><b>{verse.number}</b> {verse.first_half} *<br />&emsp;&emsp;{verse.second_half}</p>"
+                f"<p class='psalm-verse'><b>{verse.number} </b>"
+                f"<span class='first-half'>{verse.first_half} *</span><br />"
+                f"<span class='second-half'>{verse.second_half}</span></p>"
             )
         return "".join(verses)
 
     def get_text(self, reference):
+        reference = long_reference(reference)
+
         if ":" in reference:
             verse_nums = parse_verse_nums(reference)
         else:
@@ -34,8 +41,7 @@ class Psalm(models.Model):
         verses.append(f"{reference}\n")
         for num in verse_nums:
             verse = self.verse_set.get(number=num)
-            verses.append(
-                f"{verse.number} {verse.first_half} *\n{verse.second_half}\n")
+            verses.append(f"{verse.number} {verse.first_half} *\n{verse.second_half}\n")
         verses.append
         return "\n".join(verses) + "\n"
 

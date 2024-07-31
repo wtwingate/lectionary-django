@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'src/output.css' %}">
+        <title>
+            {% block title %}Lectionary{% endblock %}
+        </title>
+    </head>
+    <body class="bg-neutral-200">
+        <main class="text-neutral-800 bg-neutral-50 min-w-fit max-w-4xl mx-auto min-h-screen py-12 px-8 shadow-xl">
+            <div class="max-w-prose mx-auto">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </body>
+</html>

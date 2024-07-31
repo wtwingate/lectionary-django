@@ -1,35 +1,40 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lectionary</title>
-        <link rel="stylesheet" href="{% static 'lectionary/style.css' %}">
-    </head>
-    <body>
-        <h1>Lectionary</h1>
-        <form method="GET">
-            <label for="start">Start date</label>
-            <input type="date" id="start" name="start" />
-            <label for="end">End date</label>
-            <input type="date" id="end" name="end" />
-            <button type="submit">Submit</button>
-        </form>
-        {% for item in lectionary %}
-            {% if item.day.service is not None %}
-                <h2>
-                    <a href="{{ item.day.get_absolute_url }}">{{ item.day.name }}: {{ item.day.service }}</a>
-                </h2>
-            {% else %}
-                <h2>
-                    <a href="{{ item.day.get_absolute_url }}">{{ item.day.name }}</a>
-                </h2>
-            {% endif %}
-            <p>{{ item.date }}</p>
-            <ul>
-                {% for lesson in item.day.lesson_set.all %}<li>{{ lesson.reference }}</li>{% endfor %}
-            </ul>
-        {% endfor %}
-    </body>
-</html>
+{% extends "lectionary/base.html" %}
+{% block title %}Lectionary{% endblock %}
+{% block content %}
+    <h1 class="mb-12 text-5xl text-center font-semibold text-red-800">The Lectionary</h1>
+    <form class="max-w-fit my-12 mx-auto" method="GET">
+        <div class="flex flex-row gap-8 mb-8">
+            <div class="px-8 py-4 border-solid border-2 border-red-800">
+                <label class="block italic text-red-800" for="start">Start date</label>
+                <input class="text-neutral-800 bg-neutral-50"
+                       type="date"
+                       id="start"
+                       name="start" />
+            </div>
+            <div class="px-8 py-4 border-solid border-2 border-red-800">
+                <label class="block italic text-red-800" for="end">End date</label>
+                <input class="text-neutral-800 bg-neutral-50"
+                       type="date"
+                       id="end"
+                       name="end" />
+            </div>
+        </div>
+        <button class="max-w-fit mx-auto block px-8 py-2 text-neutral-50 bg-red-800 hover:bg-red-900"
+                type="submit">Search</button>
+    </form>
+    {% for item in lectionary %}
+        {% if item.day.service is not None %}
+            <h2 class="text-2xl mt-8 mb-4 text-red-800">
+                <a class="underline" href="{{ item.day.get_absolute_url }}">{{ item.day.name }}: {{ item.day.service }}</a>
+            </h2>
+        {% else %}
+            <h2 class="text-2xl mt-8 mb-4 text-red-800">
+                <a class="underline" href="{{ item.day.get_absolute_url }}">{{ item.day.name }}</a>
+            </h2>
+        {% endif %}
+        <p class="italic mb-1">{{ item.date }}</p>
+        <ul>
+            {% for lesson in item.day.lesson_set.all %}<li class="list-disc list-inside">{{ lesson.reference }}</li>{% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

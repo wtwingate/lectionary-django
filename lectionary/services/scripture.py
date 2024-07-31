@@ -1,4 +1,5 @@
 import os
+import re
 
 import requests
 
@@ -8,9 +9,17 @@ ESV_API_KEY = os.environ.get("ESV_API_KEY")
 TIMEOUT = 30
 
 
+def long_reference(reference):
+    return re.sub(r"\(|\)", "", reference)
+
+
+def short_reference(reference):
+    return re.sub(r"\(.*\),?\s*", "", reference)
+
+
 def get_esv_html(reference):
     params = {
-        "q": reference,
+        "q": long_reference(reference),
         "include-passage-references": False,
         "include-footnotes": False,
         "include-headings": False,
@@ -36,7 +45,7 @@ def get_esv_html(reference):
 
 def get_esv_text(reference):
     params = {
-        "q": reference,
+        "q": long_reference(reference),
         "include-footnotes": False,
         "include-headings": False,
         "include-short-copyright": False,

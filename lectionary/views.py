@@ -50,13 +50,11 @@ def detail(request, pk):
     lessons = []
     texts = []
     for lesson in day.lesson_set.all():
-        reference = re.sub(r"\(|\)", "", lesson.reference)
-
-        if reference.startswith("Psalm"):
-            number = parse_psalm_num(reference)
+        if lesson.reference.startswith("Psalm"):
+            number = parse_psalm_num(lesson.reference)
             psalm = get_object_or_404(Psalm, number=number)
-            scripture = psalm.get_html(reference)
-            text = psalm.get_text(reference)
+            scripture = psalm.get_html(lesson.reference)
+            text = psalm.get_text(lesson.reference)
         else:
             scripture = lesson.get_html()
             text = lesson.get_text()

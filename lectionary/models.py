@@ -67,5 +67,10 @@ class Lesson(models.Model):
 
         return self.esv_text
 
+    def clear_html_text(self):
+        self.esv_html = None
+        self.esv_text = None
+        self.save()
+
     def __str__(self):
-        return f"{self.scripture}"
+        return f"{self.reference}"

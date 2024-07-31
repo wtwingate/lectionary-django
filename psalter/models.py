@@ -23,7 +23,9 @@ class Psalm(models.Model):
         for num in verse_nums:
             verse = self.verse_set.get(number=num)
             verses.append(
-                f"<p><b>{verse.number}</b> {verse.first_half} *<br />&emsp;&emsp;{verse.second_half}</p>"
+                f"<p class='psalm-verse'><b>{verse.number} </b>"
+                f"<span class='first-half'>{verse.first_half} *</span><br />"
+                f"<span class='second-half'>{verse.second_half}</span></p>"
             )
         return "".join(verses)
 

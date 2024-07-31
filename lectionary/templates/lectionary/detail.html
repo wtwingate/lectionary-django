@@ -10,7 +10,7 @@
     <button id="copy-button">Copy lessons to clipboard</button>
     {% for lesson in lessons %}
         <h2 class="text-2xl">{{ lesson.reference }}</h2>
-        <div>{{ lesson.scripture | safe }}</div>
+        <div class="scripture">{{ lesson.scripture | safe }}</div>
     {% endfor %}
     <script>var texts = JSON.parse("{{ texts | escapejs }}");</script>
     <script src="{% static 'lectionary/clipboard.js' %}"></script>

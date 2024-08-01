@@ -1,7 +1,7 @@
 from django.db import models
 
 from psalter.services import parse_verse_nums
-from lectionary.services.scripture import long_reference, short_reference
+from lectionary.services.scripture import long_reference
 
 
 class Psalm(models.Model):

@@ -1,6 +1,5 @@
 import datetime as dt
 import json
-import re
 
 from django.shortcuts import get_object_or_404, render
 

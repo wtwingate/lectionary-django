@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('lectionary', '0002_seed_day_lesson'),
+        ("lectionary", "0002_seed_day_lesson"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='lesson',
-            name='esv_html',
+            model_name="lesson",
+            name="esv_html",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='lesson',
-            name='esv_text',
+            model_name="lesson",
+            name="esv_text",
             field=models.TextField(blank=True, null=True),
         ),
     ]

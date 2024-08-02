@@ -1,7 +1,10 @@
 from django.db import models
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 from lectionary.services.scripture import get_esv_html, get_esv_text
+from psalter.models import Psalm
+from psalter.services import parse_psalm_num
 
 
 class Day(models.Model):
@@ -50,26 +53,48 @@ class Lesson(models.Model):
     day = models.ForeignKey(Day, on_delete=models.CASCADE)
     esv_html = models.TextField(null=True, blank=True)
     esv_text = models.TextField(null=True, blank=True)
+    psalm_html = models.TextField(null=True, blank=True)
+    psalm_text = models.TextField(null=True, blank=True)
 
     def get_html(self):
-        if self.esv_html is None:
-            esv_html = get_esv_html(self.reference)
-            self.esv_html = esv_html
-            self.save()
-
-        return self.esv_html
+        if self.reference.startswith("Psalm"):
+            self.psalm_cache()
+            return self.psalm_html
+        else:
+            self.esv_cache()
+            return self.esv_html
 
     def get_text(self):
-        if self.esv_text is None:
-            esv_text = get_esv_text(self.reference)
-            self.esv_text = esv_text
-            self.save()
+        if self.reference.startswith("Psalm"):
+            self.psalm_cache()
+            return self.psalm_text
+        else:
+            self.esv_cache()
+            return self.esv_text
 
-        return self.esv_text
+    def psalm_cache(self):
+        if self.psalm_html and self.psalm_text:
+            return
 
-    def clear_html_text(self):
+        psalm_num = parse_psalm_num(self.reference)
+        psalm = get_object_or_404(Psalm, number=psalm_num)
+        self.psalm_html = psalm.get_html(self.reference)
+        self.psalm_text = psalm.get_text(self.reference)
+        self.save()
+
+    def esv_cache(self):
+        if self.esv_html and self.esv_text:
+            return
+
+        self.esv_html = get_esv_html(self.reference)
+        self.esv_text = get_esv_text(self.reference)
+        self.save()
+
+    def clear_cache(self):
         self.esv_html = None
         self.esv_text = None
+        self.psalm_html = None
+        self.psalm_text = None
         self.save()
 
     def __str__(self):

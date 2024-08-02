@@ -5,8 +5,6 @@ from django.shortcuts import get_object_or_404, render
 
 from lectionary.models import Day
 from lectionary.services.lectionary import get_lectionary_data
-from psalter.models import Psalm
-from psalter.services import parse_psalm_num
 
 
 def index(request):
@@ -47,29 +45,21 @@ def detail(request, pk):
     day = get_object_or_404(Day, pk=pk)
 
     lessons = []
-    texts = []
     for lesson in day.lesson_set.all():
-        if lesson.reference.startswith("Psalm"):
-            number = parse_psalm_num(lesson.reference)
-            psalm = get_object_or_404(Psalm, number=number)
-            scripture = psalm.get_html(lesson.reference)
-            text = psalm.get_text(lesson.reference)
-        else:
-            scripture = lesson.get_html()
-            text = lesson.get_text()
+        html = lesson.get_html()
+        text = lesson.get_text()
 
         lessons.append(
             {
-                "reference": lesson.reference,
-                "scripture": scripture,
+                "ref": lesson.reference,
+                "html": html,
+                "text": json.dumps(text),
             }
         )
-        texts.append(text)
 
     context = {
         "day": day,
         "lessons": lessons,
-        "texts": json.dumps(texts),
     }
 
     return render(request, "lectionary/detail.html", context=context)

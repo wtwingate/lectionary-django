@@ -4,12 +4,9 @@ services:
       context: .
     ports:
       - 8000:8000
-    secrets:
-      - db-password
-      - esv-api-key
     environment:
-      - DB_PASSWORD_FILE=/run/secrets/db-password
-      - ESV_API_KEY_FILE=/run/secrets/esv-api-key
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - ESV_API_KEY=${ESV_API_KEY}
     depends_on:
       db:
         condition: service_healthy
@@ -17,13 +14,9 @@ services:
     image: postgres
     restart: always
     user: postgres
-    secrets:
-      - db-password
-    volumes:
-      - db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     expose:
       - 5432
     healthcheck:
@@ -31,10 +24,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-volumes:
-  db-data:
-secrets:
-  db-password:
-    file: secrets/db_password.txt
-  esv-api-key:
-    file: secrets/esv_api_key.txt

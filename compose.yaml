@@ -1,0 +1,26 @@
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - ESV_API_KEY=${ESV_API_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres
+    restart: always
+    user: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    expose:
+      - 5432
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5

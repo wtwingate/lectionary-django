@@ -10,8 +10,8 @@
     <button class="block max-w-fit mx-auto mb-12 px-8 py-2 text-neutral-50 bg-red-800 hover:bg-red-900"
             id="copy-button">Copy lessons to clipboard</button>
     {% for lesson in lessons %}
-        <h2 class="text-2xl mt-8 mb-4 text-red-800">{{ lesson.reference }}</h2>
-        <div class="scripture">{{ lesson.scripture | safe }}</div>
+        <h2 class="text-2xl mt-8 mb-4 text-red-800">{{ lesson.ref }}</h2>
+        <div class="scripture">{{ lesson.html | safe }}</div>
     {% endfor %}
     <p class="mt-12 text-sm italic text-center text-balance">
         Psalter quotations are from The New Coverdale Psalter Copyright © 2019

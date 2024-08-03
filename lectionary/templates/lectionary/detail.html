@@ -3,14 +3,14 @@
 {% block title %}{{ day.name }}{% endblock %}
 {% block content %}
     {% if day.service is not None %}
-        <h1 class="mb-12 text-5xl text-center font-semibold text-red-800">{{ day.name }}: {{ day.service }}</h1>
+        <h1 class="mt-24 mb-12 text-5xl text-center font-semibold text-red-800">{{ day.name }}: {{ day.service }}</h1>
     {% else %}
-        <h1 class="mb-12 text-5xl text-center font-semibold text-red-800">{{ day.name }}</h1>
+        <h1 class="mt-24 mb-12 text-5xl text-center font-semibold text-red-800">{{ day.name }}</h1>
     {% endif %}
-    <button class="block max-w-fit mx-auto mb-12 px-8 py-2 text-neutral-50 bg-red-800 hover:bg-red-900"
+    <button class="mt-12 mb-24 px-8 py-2 block max-w-fit mx-auto font-semibold text-neutral-50 bg-red-800 hover:bg-red-900"
             id="copy-button">Copy lessons to clipboard</button>
     {% for lesson in lessons %}
-        <h2 class="text-2xl mt-8 mb-4 text-red-800">{{ lesson.ref }}</h2>
+        <h2 class="text-3xl mt-12 mb-6 text-red-800">{{ lesson.ref }}</h2>
         <div class="scripture">{{ lesson.html | safe }}</div>
     {% endfor %}
     <p class="mt-12 text-sm italic text-center text-balance">

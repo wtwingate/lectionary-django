@@ -5,8 +5,9 @@ services:
     ports:
       - 8000:8000
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - ESV_API_KEY=${ESV_API_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     depends_on:
       db:
         condition: service_healthy

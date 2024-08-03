@@ -1,25 +1,23 @@
 {% extends "lectionary/base.html" %}
 {% block title %}Lectionary{% endblock %}
 {% block content %}
-    <h1 class="mb-12 text-5xl text-center font-semibold text-red-800">The Lectionary</h1>
-    <form class="max-w-fit my-12 mx-auto" method="GET">
-        <div class="flex flex-row gap-8 mb-8">
-            <div class="px-8 py-4 border-solid border-2 border-red-800">
-                <label class="block italic text-red-800" for="start">Start date</label>
-                <input class="text-neutral-800 bg-neutral-50"
-                       type="date"
-                       id="start"
-                       name="start" />
-            </div>
-            <div class="px-8 py-4 border-solid border-2 border-red-800">
-                <label class="block italic text-red-800" for="end">End date</label>
-                <input class="text-neutral-800 bg-neutral-50"
-                       type="date"
-                       id="end"
-                       name="end" />
-            </div>
+    <h1 class="my-24 text-5xl text-center font-semibold text-red-800">The Lectionary</h1>
+    <form class="max-w-full my-12 mx-auto" method="GET">
+        <div class="my-8 mx-auto max-w-72 flex flex-row justify-between items-center">
+            <label class="text-xl italic text-red-800" for="start">Start</label>
+            <input class="px-4 py-1 text-neutral-800 bg-neutral-50 border-red-800 border-solid border-2"
+                   type="date"
+                   id="start"
+                   name="start" />
         </div>
-        <button class="max-w-fit mx-auto block px-8 py-2 text-neutral-50 bg-red-800 hover:bg-red-900"
+        <div class="my-8 mx-auto max-w-72 flex flex-row justify-between items-center">
+            <label class="text-xl italic text-red-800" for="end">End</label>
+            <input class="px-4 py-1 text-neutral-800 bg-neutral-50 border-red-800 border-solid border-2"
+                   type="date"
+                   id="end"
+                   name="end" />
+        </div>
+        <button class="my-12 max-w-fit mx-auto block px-8 py-2 text-neutral-50 bg-red-800 hover:bg-red-900"
                 type="submit">Search</button>
     </form>
     {% for item in lectionary %}

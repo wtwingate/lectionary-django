@@ -53,13 +53,16 @@ def detail(request, pk):
             {
                 "ref": lesson.reference,
                 "html": html,
-                "text": json.dumps(text),
+                "text": text,
             }
         )
+
+    texts = json.dumps("\n".join([lesson["text"] for lesson in lessons]))
 
     context = {
         "day": day,
         "lessons": lessons,
+        "texts": texts,
     }
 
     return render(request, "lectionary/detail.html", context=context)

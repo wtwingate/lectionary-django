@@ -2,18 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'src/output.css' %}">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'src/output.css' %}" />
         <title>
             {% block title %}Lectionary{% endblock %}
         </title>
     </head>
     <body class="bg-neutral-200">
-        <main class="text-neutral-800 bg-neutral-50 min-w-fit max-w-6xl mx-auto min-h-screen py-12 px-8 shadow-xl">
-            <div class="max-w-3xl mx-auto">
+        <div class="mx-auto min-h-screen min-w-fit max-w-5xl bg-neutral-50 px-8 py-12 text-neutral-800 shadow-xl">
+            <header>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+            </header>
+            <main class="mx-auto max-w-3xl">
                 {% block content %}{% endblock %}
-            </div>
-        </main>
+            </main>
+            <footer>
+            </footer>
+        </div>
     </body>
 </html>

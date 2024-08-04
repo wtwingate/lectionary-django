@@ -66,3 +66,9 @@ def detail(request, pk):
     }
 
     return render(request, "lectionary/detail.html", context=context)
+
+
+def about(request):
+    return render(request, "lectionary/about.html")
+
+

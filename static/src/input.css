@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 html {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .scripture p {
-  @apply my-2;
+    @apply my-2;
 }

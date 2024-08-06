@@ -1,7 +1,7 @@
 {% extends "lectionary/base.html" %}
 {% block title %}Lectionary{% endblock %}
 {% block content %}
-    <h1 class="my-12 text-center text-5xl font-semibold text-red-800">The Lectionary</h1>
+    <h1 class="mb-12 mt-16 text-center text-5xl font-semibold text-red-800">The Lectionary</h1>
     <form class="mx-auto my-12 max-w-full" method="GET">
         <div class="mx-auto my-8 flex max-w-72 flex-row items-center justify-between">
             <label class="text-xl italic text-red-800" for="start">Start</label>
@@ -17,7 +17,7 @@
                    id="end"
                    name="end" />
         </div>
-        <button class="mx-auto my-12 block max-w-fit bg-red-800 px-8 py-2 text-neutral-50 hover:bg-red-900"
+        <button class="mx-auto mb-16 mt-12 block max-w-fit bg-red-800 px-8 py-2 text-neutral-50 hover:bg-red-900"
                 type="submit">Search</button>
     </form>
     {% for item in lectionary %}

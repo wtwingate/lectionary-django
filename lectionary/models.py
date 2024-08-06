@@ -25,11 +25,20 @@ class Day(models.Model):
         EASTER = ("EA", "Easter")
         PENTECOST = ("PE", "Pentecost")
 
+    class Color(models.TextChoices):
+        VIOLET = ("VI", "Violet")
+        WHITE = ("WH", "White")
+        GREEN = ("GR", "Green")
+        RED = ("RE", "Red")
+        ROSE = ("RO", "Rose")
+        BLUE = ("BL", "Blue")
+
     name = models.CharField(max_length=256)
     alt_name = models.CharField(max_length=256, null=True, blank=True)
     service = models.CharField(max_length=256, null=True, blank=True)
     year = models.CharField(max_length=1, choices=Year)
     season = models.CharField(max_length=2, choices=Season, null=True, blank=True)
+    color = models.CharField(max_length=2, choices=Color, null=True, blank=True)
 
     class Meta:
         indexes = [models.Index(fields=["name"])]

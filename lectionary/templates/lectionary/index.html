@@ -1,66 +1,33 @@
 {% extends "lectionary/base.html" %} {% block title %}Lectionary{% endblock %}
 {% block content %}
-<h1 class="mb-12 mt-16 text-center text-5xl font-semibold text-red-800">
-    The Lectionary
-</h1>
-<form class="mx-auto my-12 max-w-full" method="GET">
-    <div
-        class="mx-auto my-8 flex max-w-72 flex-row items-center justify-between"
-    >
-        <label class="text-xl italic text-red-800" for="start">Start</label>
-        <input
-            class="border-2 border-solid border-red-800 bg-neutral-50 px-4 py-1 text-neutral-800"
-            type="date"
-            id="start"
-            name="start"
-        />
+<h1>The Lectionary</h1>
+<form method="GET">
+    <div>
+        <label for="start">Start</label>
+        <input type="date" id="start" name="start" />
     </div>
-    <div
-        class="mx-auto my-8 flex max-w-72 flex-row items-center justify-between"
-    >
-        <label class="text-xl italic text-red-800" for="end">End</label>
-        <input
-            class="border-2 border-solid border-red-800 bg-neutral-50 px-4 py-1 text-neutral-800"
-            type="date"
-            id="end"
-            name="end"
-        />
+    <div>
+        <label for="end">End</label>
+        <input type="date" id="end" name="end" />
     </div>
-    <button
-        class="mx-auto mb-16 mt-12 block max-w-fit bg-red-800 px-8 py-2 font-semibold text-neutral-50 hover:bg-red-900"
-        type="submit"
-    >
-        Search
-    </button>
+    <button type="submit">Search</button>
 </form>
-<section class="">
-    <h2 class="mb-4 mt-8 text-center text-2xl text-red-800">
-        Start Date - End Date
-    </h2>
-    {% for item in lectionary %}
-    <div
-        class="mx-auto w-full px-16 py-8 shadow-xl transition-all duration-200 hover:scale-105"
-    >
-        {% if item.day.service is not None %}
-        <h2 class="mb-4 mt-8 text-2xl text-red-800">
-            <a class="underline" href="{{ item.day.get_absolute_url }}"
-                >{{ item.day.name }}: {{ item.day.service }}</a
+<section>
+    {% for item in calendar %}
+    <h2>{{ item.date }}</h2>
+    {% for day in item.days %}
+    <div>
+        <h2>
+            <a href="{{ item.day.get_absolute_url }}"
+                >{{ day.name }} {{ item.day.service }}</a
             >
         </h2>
-        {% else %}
-        <h2 class="mb-4 mt-8 text-2xl text-red-800">
-            <a class="underline" href="{{ item.day.get_absolute_url }}"
-                >{{ item.day.name }}</a
-            >
-        </h2>
-        {% endif %}
-        <h3 class="mb-1 text-xl italic">{{ item.date }}</h3>
         <ul>
-            {% for lesson in item.day.lesson_set.all %}
-            <li class="list-inside list-disc">{{ lesson.reference }}</li>
+            {% for lesson in day.lesson_set.all %}
+            <li>{{ lesson.reference }}</li>
             {% endfor %}
         </ul>
     </div>
-    {% endfor %}
+    {% endfor %} {% endfor %}
 </section>
 {% endblock %}

@@ -12,7 +12,7 @@ class Lectionary:
         self.moveable = self._get_moveable()
         self.year = self._get_year()
         self.season = self._get_season()
-        self.days = self._calc_days()
+        self.days = self._get_days()
 
     def _get_moveable(self) -> dict[str, dt.date]:
         easter_day = easter(self.date.year)
@@ -52,7 +52,7 @@ class Lectionary:
             return "Advent"
         return "Christmas"
 
-    def _get_days(self) -> list[str]:
+    def _get_days(self) -> list[Day]:
         names = []
         names.append(self._check_principal_feasts())
         names.append(self._check_ash_wednesday())

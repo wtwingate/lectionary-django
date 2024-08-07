@@ -1,426 +1,426 @@
 {
     "First Sunday of Advent": {
-        "Season": "AD",
-        "Color": "BL"
+        "season": "Advent",
+        "color": "blue"
     },
     "Second Sunday of Advent": {
-        "Season": "AD",
-        "Color": "BL"
+        "season": "Advent",
+        "color": "blue"
     },
     "Third Sunday of Advent": {
-        "Season": "AD",
-        "Color": "RO"
+        "season": "Advent",
+        "color": "rose"
     },
     "Fourth Sunday of Advent": {
-        "Season": "AD",
-        "Color": "BL"
+        "season": "Advent",
+        "color": "blue"
     },
     "Christmas Day": {
-        "Season": "CH",
-        "Color": "WH"
+        "season": "Christmas",
+        "color": "white"
     },
     "First Sunday after Christmas": {
-        "Season": "CH",
-        "Color": "WH"
+        "season": "Christmas",
+        "color": "white"
     },
     "Second Sunday after Christmas": {
-        "Season": "CH",
-        "Color": "WH"
+        "season": "Christmas",
+        "color": "white"
     },
     "The Epiphany": {
-        "Season": "EP",
-        "Color": "WH"
+        "season": "Epiphany",
+        "color": "white"
     },
     "First Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Second Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Third Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Fourth Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Fifth Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Sixth Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Seventh Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Eighth Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Second to Last Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "GR"
+        "season": "Epiphany",
+        "color": "green"
     },
     "Last Sunday after Epiphany": {
-        "Season": "EP",
-        "Color": "WH"
+        "season": "Epiphany",
+        "color": "white"
     },
     "Ash Wednesday": {
-        "Season": "LE",
-        "Color": "VI"
+        "season": "Lent",
+        "color": "violet"
     },
     "First Sunday in Lent": {
-        "Season": "LE",
-        "Color": "VI"
+        "season": "Lent",
+        "color": "violet"
     },
     "Second Sunday in Lent": {
-        "Season": "LE",
-        "Color": "VI"
+        "season": "Lent",
+        "color": "violet"
     },
     "Third Sunday in Lent": {
-        "Season": "LE",
-        "Color": "VI"
+        "season": "Lent",
+        "color": "violet"
     },
     "Fourth Sunday in Lent": {
-        "Season": "LE",
-        "Color": "RO"
+        "season": "Lent",
+        "color": "rose"
     },
     "Fifth Sunday in Lent": {
-        "Season": "LE",
-        "Color": "VI"
+        "season": "Lent",
+        "color": "violet"
     },
     "Palm Sunday": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Monday in Holy Week": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Tuesday in Holy Week": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Wednesday in Holy Week": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Maundy Thursday": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Good Friday": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Holy Saturday": {
-        "Season": "LE",
-        "Color": "RE"
+        "season": "Lent",
+        "color": "red"
     },
     "Easter Day": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Monday in Easter Week": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Tuesday in Easter Week": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Wednesday in Easter Week": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Thursday in Easter Week": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Friday in Easter Week": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Saturday in Easter Week": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Second Sunday of Easter": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Third Sunday of Easter": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Fourth Sunday of Easter": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Fifth Sunday of Easter": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Sixth Sunday of Easter": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Ascension Day": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Sunday after Ascension Day": {
-        "Season": "EA",
-        "Color": "WH"
+        "season": "Easter",
+        "color": "white"
     },
     "Day of Pentecost": {
-        "Season": "PE",
-        "Color": "RE"
+        "season": "Pentecost",
+        "color": "red"
     },
     "Trinity Sunday": {
-        "Season": "PE",
-        "Color": "WH"
+        "season": "Pentecost",
+        "color": "white"
     },
     "Proper 1": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 2": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 3": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 4": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 5": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 6": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 7": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 8": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 9": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 10": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 11": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 12": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 13": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 14": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 15": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 16": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 17": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 18": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 19": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 20": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 21": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 22": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 23": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 24": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 25": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 26": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 27": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 28": {
-        "Season": "PE",
-        "Color": "GR"
+        "season": "Pentecost",
+        "color": "green"
     },
     "Proper 29": {
-        "Season": "PE",
-        "Color": "WH"
+        "season": "Pentecost",
+        "color": "white"
     },
     "Saint Andrew": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Thomas": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Stephen": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint John": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Holy Innocents": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Holy Name": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Confession of Saint Peter": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Conversion of Saint Paul": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "The Presentation": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Matthias": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Joseph": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "The Annunciation": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Mark": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Philip and Saint James": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "The Visitation": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Barnabas": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Nativity of Saint John the Baptist": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Peter and Saint Paul": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Mary Magdalene": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint James": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "The Transfiguration": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Mary the Virgin": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Bartholomew": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Holy Cross Day": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Matthew": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Michael and All Angels": {
-        "Season": null,
-        "Color": "WH"
+        "season": null,
+        "color": "white"
     },
     "Saint Luke": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint James of Jerusalem": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "Saint Simon and Saint Jude": {
-        "Season": null,
-        "Color": "RE"
+        "season": null,
+        "color": "red"
     },
     "All Saints' Day": {
-        "Season": "PE",
-        "Color": "WH"
+        "season": "Pentecost",
+        "color": "white"
     }
 }

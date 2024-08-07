@@ -6,17 +6,16 @@
 {% endblock %}
 {% block content %}
     {% if day.service is not None %}
-        <h1 class="my-12 text-center text-5xl font-semibold text-red-800">{{ day.name }}: {{ day.service }}</h1>
+        <h1>{{ day.name }}: {{ day.service }}</h1>
     {% else %}
-        <h1 class="my-12 text-center text-5xl font-semibold text-red-800">{{ day.name }}</h1>
+        <h1>{{ day.name }}</h1>
     {% endif %}
-    <button class="mx-auto my-12 block max-w-fit bg-red-800 px-8 py-2 font-semibold text-neutral-50 hover:bg-red-900"
-            id="copy-button">Copy lessons to clipboard</button>
+    <button id="copy-button">Copy lessons to clipboard</button>
     {% for lesson in lessons %}
-        <h2 class="mb-4 mt-8 text-3xl text-red-800">{{ lesson.ref }}</h2>
-        <div class="scripture">{{ lesson.html | safe }}</div>
+        <h2>{{ lesson.ref }}</h2>
+        <div>{{ lesson.html | safe }}</div>
     {% endfor %}
-    <p class="mt-12 text-balance text-center text-sm italic">
+    <p>
         Psalter quotations are from The New Coverdale Psalter Copyright © 2019 by
         the Anglican Church in North America. Other scripture quotations are from
         The ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by

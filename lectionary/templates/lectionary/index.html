@@ -1,33 +1,51 @@
 {% extends "lectionary/base.html" %}
 {% block title %}Lectionary{% endblock %}
 {% block content %}
-    <h1 class="my-20 text-6xl font-semibold text-center">The Lectionary</h1>
-    <form class="bg-neutral-100 shadow-lg rounded-lg px-16 py-8 mx-auto max-w-max flex flex-row gap-8 justify-center items-center" method="GET">
-        <span class="flex gap-2 items-center">
+    <h1 class="mt-24 mb-12 text-center text-6xl font-semibold">The Lectionary</h1>
+    <p class="text-center italic mb-12">
+        A website for the Sunday, Holy Day, and Commemoration Lectionary<br />
+        of the <a class="underline" href="https://anglicanchurch.net/">Anglican Church in North America</a>.
+    </p>
+    <form class="mx-auto flex w-5/6 flex-row items-center justify-center gap-8 rounded-xl bg-neutral-200 px-16 py-8 shadow-xl"
+          method="GET">
+        <span class="flex items-center gap-2">
             <label class="font-bold" for="start">Start</label>
-            <input class="rounded-sm px-2 bg-neutral-50 text-neutral-950 border-solid border-2 border-neutral-950" type="date" id="start" name="start" />
+            <input class="rounded-sm border-2 border-solid border-neutral-950 bg-neutral-50 px-2 text-neutral-950"
+                   type="date"
+                   id="start"
+                   name="start" />
         </span>
-        <span class="flex gap-2 items-center">
+        <span class="flex items-center gap-2">
             <label class="font-bold" for="end">End</label>
-            <input class="rounded-sm px-2 bg-neutral-50 text-neutral-950 border-solid border-2 border-neutral-950" type="date" id="end" name="end" />
+            <input class="rounded-sm border-2 border-solid border-neutral-950 bg-neutral-50 px-2 text-neutral-950"
+                   type="date"
+                   id="end"
+                   name="end" />
         </span>
-        <button class="bg-neutral-600 hover:bg-neutral-700 text-neutral-50 font-bold shadow-sm px-8 py-2 rounded-md" type="submit">Search</button>
+        <button class="rounded-md bg-neutral-600 px-8 py-2 font-bold text-neutral-50 shadow-md hover:bg-neutral-700"
+                type="submit">Search</button>
     </form>
-    <section>
+    <section class="my-12 flex flex-col gap-6">
         {% for item in calendar %}
             {% if item.days %}
-                <div>
-                    <h2>{{ item.date }}</h2>
+                <div class="mx-auto w-5/6 overflow-hidden rounded-xl bg-neutral-200 shadow-xl transition-all hover:scale-105">
+                    <h2 class="my-2 text-center text-2xl font-semibold">{{ item.readable_date }}</h2>
                     {% for day in item.days %}
-                        <div>
-                            <h3>
-                                <a href="{{ day.get_absolute_url }}">{{ day.name }}
-                                    {% if day.service %}{{ day.service }}{% endif %}
-                                </a>
-                            </h3>
-                            <ul>
-                                {% for lesson in day.lesson_set.all %}<li>{{ lesson.reference }}</li>{% endfor %}
-                            </ul>
+                        <div class="grid grid-cols-2 py-4 px-24 {{ day.color }}-card">
+                            <div class="">
+                                <h3 class="mb-4 text-xl font-semibold underline">
+                                    <a href="{{ day.get_absolute_url }}">{{ day.name }}
+                                        {% if day.service %}{{ day.service }}{% endif %}
+                                    </a>
+                                </h3>
+                                <p>Year {{ day.year }}</p>
+                                <p>{{ item.season }}</p>
+                            </div>
+                            <div class="">
+                                <ul>
+                                    {% for lesson in day.lesson_set.all %}<li class="list-inside list-disc">{{ lesson.reference }}</li>{% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>

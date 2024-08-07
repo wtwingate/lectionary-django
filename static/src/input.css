@@ -5,3 +5,33 @@
 html {
     font-size: 18px;
 }
+
+.violet-card {
+    @apply bg-violet-600;
+    @apply text-neutral-50;
+}
+
+.white-card {
+    @apply bg-neutral-50;
+    @apply text-yellow-600;
+}
+
+.green-card {
+    @apply bg-green-600;
+    @apply text-neutral-50;
+}
+
+.red-card {
+    @apply bg-red-600;
+    @apply text-neutral-50;
+}
+
+.blue-card {
+    @apply bg-blue-600;
+    @apply text-neutral-50;
+}
+
+.rose-card {
+    @apply bg-rose-400;
+    @apply text-neutral-50;
+}

@@ -14,6 +14,9 @@ class Lectionary:
         self.season = self._get_season()
         self.days = self._get_days()
 
+    def readable_date(self):
+        return self.date.strftime("%A — %D")
+
     def _get_moveable(self) -> dict[str, dt.date]:
         easter_day = easter(self.date.year)
         moveable = {

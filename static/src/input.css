@@ -5,7 +5,3 @@
 html {
     font-size: 18px;
 }
-
-.scripture p {
-    @apply my-2;
-}

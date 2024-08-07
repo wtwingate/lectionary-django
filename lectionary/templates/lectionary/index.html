@@ -1,17 +1,17 @@
 {% extends "lectionary/base.html" %}
 {% block title %}Lectionary{% endblock %}
 {% block content %}
-    <h1>The Lectionary</h1>
-    <form method="GET">
-        <div>
-            <label for="start">Start</label>
-            <input type="date" id="start" name="start" />
-        </div>
-        <div>
-            <label for="end">End</label>
-            <input type="date" id="end" name="end" />
-        </div>
-        <button type="submit">Search</button>
+    <h1 class="my-20 text-6xl font-semibold text-center">The Lectionary</h1>
+    <form class="bg-neutral-100 shadow-lg rounded-lg px-16 py-8 mx-auto max-w-max flex flex-row gap-8 justify-center items-center" method="GET">
+        <span class="flex gap-2 items-center">
+            <label class="font-bold" for="start">Start</label>
+            <input class="rounded-sm px-2 bg-neutral-50 text-neutral-950 border-solid border-2 border-neutral-950" type="date" id="start" name="start" />
+        </span>
+        <span class="flex gap-2 items-center">
+            <label class="font-bold" for="end">End</label>
+            <input class="rounded-sm px-2 bg-neutral-50 text-neutral-950 border-solid border-2 border-neutral-950" type="date" id="end" name="end" />
+        </span>
+        <button class="bg-neutral-600 hover:bg-neutral-700 text-neutral-50 font-bold shadow-sm px-8 py-2 rounded-md" type="submit">Search</button>
     </form>
     <section>
         {% for item in calendar %}

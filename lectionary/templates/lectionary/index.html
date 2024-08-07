@@ -1,33 +1,37 @@
-{% extends "lectionary/base.html" %} {% block title %}Lectionary{% endblock %}
+{% extends "lectionary/base.html" %}
+{% block title %}Lectionary{% endblock %}
 {% block content %}
-<h1>The Lectionary</h1>
-<form method="GET">
-    <div>
-        <label for="start">Start</label>
-        <input type="date" id="start" name="start" />
-    </div>
-    <div>
-        <label for="end">End</label>
-        <input type="date" id="end" name="end" />
-    </div>
-    <button type="submit">Search</button>
-</form>
-<section>
-    {% for item in calendar %}
-    <h2>{{ item.date }}</h2>
-    {% for day in item.days %}
-    <div>
-        <h2>
-            <a href="{{ item.day.get_absolute_url }}"
-                >{{ day.name }} {{ item.day.service }}</a
-            >
-        </h2>
-        <ul>
-            {% for lesson in day.lesson_set.all %}
-            <li>{{ lesson.reference }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endfor %} {% endfor %}
-</section>
+    <h1>The Lectionary</h1>
+    <form method="GET">
+        <div>
+            <label for="start">Start</label>
+            <input type="date" id="start" name="start" />
+        </div>
+        <div>
+            <label for="end">End</label>
+            <input type="date" id="end" name="end" />
+        </div>
+        <button type="submit">Search</button>
+    </form>
+    <section>
+        {% for item in calendar %}
+            {% if item.days %}
+                <div>
+                    <h2>{{ item.date }}</h2>
+                    {% for day in item.days %}
+                        <div>
+                            <h3>
+                                <a href="{{ day.get_absolute_url }}">{{ day.name }}
+                                    {% if day.service %}{{ day.service }}{% endif %}
+                                </a>
+                            </h3>
+                            <ul>
+                                {% for lesson in day.lesson_set.all %}<li>{{ lesson.reference }}</li>{% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
 {% endblock %}

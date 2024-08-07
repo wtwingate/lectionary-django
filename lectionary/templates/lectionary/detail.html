@@ -1,9 +1,6 @@
 {% extends "lectionary/base.html" %}
 {% load static %}
-{% block title %}
-    {{
-    day.name }}
-{% endblock %}
+{% block title %}{{ day.name }}{% endblock %}
 {% block content %}
     {% if day.service is not None %}
         <h1>{{ day.name }}: {{ day.service }}</h1>
@@ -16,8 +13,8 @@
         <div>{{ lesson.html | safe }}</div>
     {% endfor %}
     <p>
-        Psalter quotations are from The New Coverdale Psalter Copyright © 2019 by
-        the Anglican Church in North America. Other scripture quotations are from
+        Psalm quotations are from The New Coverdale Psalter Copyright © 2019 by
+        the Anglican Church in North America. Other Scripture quotations are from
         The ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by
         Crossway, a publishing ministry of Good News Publishers. Used by permission.
         All rights reserved.

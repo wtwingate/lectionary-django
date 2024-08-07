@@ -4,36 +4,87 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Day',
+            name="Day",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('alt_name', models.CharField(blank=True, max_length=256, null=True)),
-                ('service', models.CharField(blank=True, max_length=256, null=True)),
-                ('year', models.CharField(choices=[('A', 'A'), ('B', 'B'), ('C', 'C')], max_length=16)),
-                ('season', models.CharField(blank=True, choices=[('Advent', 'Advent'), ('Christmas', 'Christmas'), ('Epiphany', 'Epiphany'), ('Lent', 'Lent'), ('Easter', 'Easter'), ('Pentecost', 'Pentecost')], max_length=16, null=True)),
-                ('color', models.CharField(blank=True, choices=[('violet', 'Violet'), ('white', 'White'), ('green', 'Green'), ('red', 'Red'), ('rose', 'Rose'), ('blue', 'Blue')], max_length=16, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("alt_name", models.CharField(blank=True, max_length=256, null=True)),
+                ("service", models.CharField(blank=True, max_length=256, null=True)),
+                (
+                    "year",
+                    models.CharField(
+                        choices=[("A", "A"), ("B", "B"), ("C", "C")], max_length=16
+                    ),
+                ),
+                (
+                    "season",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("Advent", "Advent"),
+                            ("Christmas", "Christmas"),
+                            ("Epiphany", "Epiphany"),
+                            ("Lent", "Lent"),
+                            ("Easter", "Easter"),
+                            ("Pentecost", "Pentecost"),
+                        ],
+                        max_length=16,
+                        null=True,
+                    ),
+                ),
+                (
+                    "color",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("violet", "Violet"),
+                            ("white", "White"),
+                            ("green", "Green"),
+                            ("red", "Red"),
+                            ("rose", "Rose"),
+                            ("blue", "Blue"),
+                        ],
+                        max_length=16,
+                        null=True,
+                    ),
+                ),
             ],
             options={
-                'indexes': [models.Index(fields=['name'], name='lectionary__name_3faa50_idx')],
+                "indexes": [
+                    models.Index(fields=["name"], name="lectionary__name_3faa50_idx")
+                ],
             },
         ),
         migrations.CreateModel(
-            name='Lesson',
+            name="Lesson",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('reference', models.CharField(max_length=256)),
-                ('html', models.TextField(blank=True, null=True)),
-                ('text', models.TextField(blank=True, null=True)),
-                ('days', models.ManyToManyField(to='lectionary.day')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("reference", models.CharField(max_length=256)),
+                ("html", models.TextField(blank=True, null=True)),
+                ("text", models.TextField(blank=True, null=True)),
+                ("days", models.ManyToManyField(to="lectionary.day")),
             ],
         ),
     ]

@@ -1,4 +1,5 @@
 import os
+import logging
 import re
 
 import requests
@@ -8,16 +9,18 @@ ESV_TEXT_URL = "https://api.esv.org/v3/passage/text/"
 ESV_API_KEY = os.environ.get("ESV_API_KEY")
 TIMEOUT = 30
 
+logger = logging.getLogger("django")
 
-def long_reference(reference):
+
+def long_reference(reference: str) -> str:
     return re.sub(r"\(|\)", "", reference)
 
 
-def short_reference(reference):
+def short_reference(reference: str) -> str:
     return re.sub(r"\(.*\),?\s*", "", reference)
 
 
-def get_esv_html(reference):
+def get_esv_html(reference: str) -> str:
     params = {
         "q": long_reference(reference),
         "include-passage-references": False,
@@ -40,10 +43,11 @@ def get_esv_html(reference):
     if passages:
         return passages
     else:
-        raise Exception("Error: passage not found")
+        logger.error(f"Error: could not fetch {reference}.")
+        return ""
 
 
-def get_esv_text(reference):
+def get_esv_text(reference: str) -> str:
     params = {
         "q": long_reference(reference),
         "include-footnotes": False,
@@ -68,4 +72,5 @@ def get_esv_text(reference):
     if passages:
         return passages.replace("[", "").replace("]", "")
     else:
-        raise Exception("Error: passage not found")
+        logger.error(f"Error: could not fetch {reference}.")
+        return ""

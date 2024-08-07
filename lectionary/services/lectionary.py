@@ -32,10 +32,10 @@ class Lectionary:
             start_year = self.date.year - 1
 
         if start_year % 3 == 0:
-            return "Year A"
+            return "A"
         if start_year % 3 == 1:
-            return "Year B"
-        return "Year C"
+            return "B"
+        return "C"
 
     def _get_season(self) -> str:
         if self.date < dt.date(self.date.year, 1, 6):

@@ -3,7 +3,7 @@ import json
 
 from django.shortcuts import get_object_or_404, render
 
-from lectionary.models import Day
+from lectionary.models import Day, DayLesson
 from lectionary.services.lectionary import Lectionary
 
 
@@ -24,9 +24,25 @@ def index(request):
         dates.append(current_date)
         current_date += dt.timedelta(days=1)
 
-    calendar = []
+    calendar = {}
     for date in dates:
-        calendar.append(Lectionary(date))
+        lectionary = Lectionary(date)
+        hr_date = date.strftime("%A — %D")
+        calendar[hr_date] = []
+        for name in lectionary.names:
+            day = Day.objects.get(name=name, year=lectionary.year)
+            lessons = [d.lesson for d in DayLesson.objects.filter(day=day)]
+            calendar[hr_date].append(
+                {
+                    "day": day,
+                    "year": lectionary.year,
+                    "season": lectionary.season,
+                    "lessons": lessons,
+                }
+            )
+
+    # Remove all dates from calendar which have no lectionary data
+    calendar = {k: v for k, v in calendar.items() if len(v) != 0}
 
     return render(request, "lectionary/index.html", {"calendar": calendar})
 
@@ -35,7 +51,7 @@ def detail(request, pk):
     day = get_object_or_404(Day, pk=pk)
 
     lessons = []
-    for lesson in day.lesson_set.all():
+    for lesson in [d.lesson for d in DayLesson.objects.filter(day=day)]:
         html = lesson.get_html()
         text = lesson.get_text()
 

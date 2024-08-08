@@ -39,10 +39,7 @@ class Day(models.Model):
     year = models.CharField(max_length=16, choices=Year)
     season = models.CharField(max_length=16, choices=Season, null=True, blank=True)
     color = models.CharField(max_length=16, choices=Color, null=True, blank=True)
-    lessons = models.ManyToManyField("Lesson")
-
-    class Meta:
-        indexes = [models.Index(fields=["name"])]
+    lessons = models.ManyToManyField("Lesson", through="DayLesson")
 
     def __str__(self):
         if self.service is not None:
@@ -55,8 +52,8 @@ class Day(models.Model):
 
 class Lesson(models.Model):
     """A model representing a specific lesson appointed in the
-    lectionary for one or more holy days. Note that the scripture field
-    may have alternate readings separated by " or ".
+    lectionary for one or more holy days. Note that the scripture
+    field may have alternate readings separated by " or ".
     """
 
     reference = models.CharField(max_length=256)
@@ -102,3 +99,12 @@ class Lesson(models.Model):
 
     def __str__(self):
         return f"{self.reference}"
+
+
+class DayLesson(models.Model):
+    """A model representing the many-to-many relationship between
+    Days and Lessons.
+    """
+
+    day = models.ForeignKey("Day", on_delete=models.CASCADE)
+    lesson = models.ForeignKey("Lesson", on_delete=models.CASCADE)

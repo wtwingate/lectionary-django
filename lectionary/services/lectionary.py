@@ -3,8 +3,6 @@ import datetime as dt
 from dateutil.easter import easter
 from dateutil.relativedelta import SU, relativedelta
 
-from lectionary.models import Day
-
 
 class Lectionary:
     def __init__(self, date: dt.date):
@@ -12,10 +10,7 @@ class Lectionary:
         self.moveable = self._get_moveable()
         self.year = self._get_year()
         self.season = self._get_season()
-        self.days = self._get_days()
-
-    def readable_date(self):
-        return self.date.strftime("%A — %D")
+        self.names = self._get_names()
 
     def _get_moveable(self) -> dict[str, dt.date]:
         easter_day = easter(self.date.year)
@@ -55,7 +50,7 @@ class Lectionary:
             return "Advent"
         return "Christmas"
 
-    def _get_days(self) -> list[Day]:
+    def _get_names(self) -> list[str]:
         names = []
         names.append(self._check_principal_feasts())
         names.append(self._check_ash_wednesday())
@@ -63,15 +58,7 @@ class Lectionary:
         names.append(self._check_easter_week())
         names.append(self._check_sundays())
         names.append(self._check_red_letter_days())
-
-        days = []
-        for name in names:
-            if name is None:
-                continue
-            matches = Day.objects.filter(name=name, year=self.year)
-            for match in matches:
-                days.append(match)
-        return days
+        return [n for n in names if n]
 
     def _check_principal_feasts(self) -> str | None:
         if self.date == self.moveable["easter_day"]:

@@ -30,16 +30,16 @@ def index(request):
         hr_date = date.strftime("%A — %D")
         calendar[hr_date] = []
         for name in lectionary.names:
-            day = Day.objects.get(name=name, year=lectionary.year)
-            lessons = [d.lesson for d in DayLesson.objects.filter(day=day)]
-            calendar[hr_date].append(
-                {
-                    "day": day,
-                    "year": lectionary.year,
-                    "season": lectionary.season,
-                    "lessons": lessons,
-                }
-            )
+            for day in Day.objects.filter(name=name, year=lectionary.year):
+                lessons = [d.lesson for d in DayLesson.objects.filter(day=day)]
+                calendar[hr_date].append(
+                    {
+                        "day": day,
+                        "year": lectionary.year,
+                        "season": lectionary.season,
+                        "lessons": lessons,
+                    }
+                )
 
     # Remove all dates from calendar which have no lectionary data
     calendar = {k: v for k, v in calendar.items() if len(v) != 0}

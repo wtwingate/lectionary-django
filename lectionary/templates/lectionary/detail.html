@@ -2,17 +2,17 @@
 {% load static %}
 {% block title %}{{ day.name }}{% endblock %}
 {% block content %}
-    {% if day.service is not None %}
-        <h1>{{ day.name }}: {{ day.service }}</h1>
-    {% else %}
-        <h1>{{ day.name }}</h1>
-    {% endif %}
-    <button id="copy-button">Copy lessons to clipboard</button>
+    <h1 class="bg-{{ day.color }} my-12 py-12 text-center text-6xl font-semibold">
+        {{ day.name }}
+        {% if day.service %}{{ day.service }}{% endif %}
+    </h1>
+    <button class="mx-auto my-12 block w-fit rounded-xl bg-neutral-200 px-8 py-2 font-bold text-neutral-950 shadow-md hover:bg-neutral-300"
+            id="copy-button">Copy lessons to clipboard</button>
     {% for lesson in lessons %}
-        <h2>{{ lesson.ref }}</h2>
-        <div>{{ lesson.html | safe }}</div>
+        <h2 class="mx-auto max-w-3xl mt-8 text-2xl font-semibold text-{{ day.color }}">{{ lesson.ref }}</h2>
+        <div class="mx-auto max-w-3xl [&>p]:my-4">{{ lesson.html | safe }}</div>
     {% endfor %}
-    <p>
+    <p class="mx-auto my-8 max-w-prose text-center text-sm italic">
         Psalm quotations are from The New Coverdale Psalter Copyright © 2019 by the
         Anglican Church in North America. Other Scripture quotations are from The
         ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by

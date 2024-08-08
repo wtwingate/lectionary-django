@@ -1,16 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
-<html class="bg-neutral-300" lang="en">
+<html lang="en" class="bg-neutral-300">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Website for the Anglican lectionary." />
+        <meta name="keywords" content="lectionary, anglican, scripture, calendar" />
         <link rel="stylesheet" href="{% static 'src/output.css' %}" />
         <title>
-            {% block title %}Lectionary{% endblock %}
+            {% block title %}
+                Lectionary
+            {% endblock title %}
         </title>
     </head>
-    <body class="mx-auto max-w-5xl bg-neutral-50 p-8 text-neutral-950 shadow-2xl">
-        <header class="flex flex-row justify-between text-xl">
+    <body class="mx-auto max-w-4xl bg-neutral-50 py-8 px-4 sm:px-8 md:px-16 lg:px-32 text-neutral-950 shadow-2xl">
+        <header class="flex flex-row justify-between text-lg">
             <span>
                 <a href="{% url 'index' %}">lectionary2019.com</a>
             </span>
@@ -20,9 +24,10 @@
             </span>
         </header>
         <main>
-            {% block content %}{% endblock %}
+            {% block content %}
+            {% endblock content %}
         </main>
-        <footer>
+        <footer class="mt-8">
             <p class="text-center">Made with ❤️ by William Wingate.</p>
         </footer>
     </body>

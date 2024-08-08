@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    font-size: 18px;
-}
-
 .bg-violet {
     @apply bg-violet-600;
     @apply text-neutral-50;

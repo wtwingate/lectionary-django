@@ -39,6 +39,7 @@ class Day(models.Model):
     year = models.CharField(max_length=16, choices=Year)
     season = models.CharField(max_length=16, choices=Season, null=True, blank=True)
     color = models.CharField(max_length=16, choices=Color, null=True, blank=True)
+    lessons = models.ManyToManyField("Lesson")
 
     class Meta:
         indexes = [models.Index(fields=["name"])]
@@ -59,7 +60,6 @@ class Lesson(models.Model):
     """
 
     reference = models.CharField(max_length=256)
-    days = models.ManyToManyField(Day)
     html = models.TextField(null=True, blank=True)
     text = models.TextField(null=True, blank=True)
 

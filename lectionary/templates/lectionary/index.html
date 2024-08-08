@@ -45,7 +45,7 @@
                             </div>
                             <div>
                                 <ul>
-                                    {% for lesson in day.lesson_set.all %}<li class="list-inside list-disc">{{ lesson.reference }}</li>{% endfor %}
+                                    {% for lesson in day.lessons.all %}<li class="list-inside list-disc">{{ lesson.reference }}</li>{% endfor %}
                                 </ul>
                             </div>
                         </div>

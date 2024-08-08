@@ -6,6 +6,62 @@ html {
     font-size: 18px;
 }
 
-.scripture p {
-    @apply my-2;
+.bg-violet {
+    @apply bg-violet-600;
+    @apply text-neutral-50;
+}
+
+.text-violet {
+    @apply bg-neutral-50;
+    @apply text-violet-600;
+}
+
+.bg-white {
+    @apply bg-neutral-50;
+    @apply text-yellow-600;
+}
+
+.text-white {
+    @apply bg-neutral-50;
+    @apply text-yellow-600;
+}
+
+.bg-green {
+    @apply bg-green-600;
+    @apply text-neutral-50;
+}
+
+.text-green {
+    @apply bg-neutral-50;
+    @apply text-green-600;
+}
+
+.bg-red {
+    @apply bg-red-600;
+    @apply text-neutral-50;
+}
+
+.text-red {
+    @apply bg-neutral-50;
+    @apply text-red-600;
+}
+
+.bg-blue {
+    @apply bg-blue-600;
+    @apply text-neutral-50;
+}
+
+.text-blue {
+    @apply bg-neutral-50;
+    @apply text-blue-600;
+}
+
+.bg-rose {
+    @apply bg-rose-400;
+    @apply text-neutral-50;
+}
+
+.text-rose {
+    @apply bg-neutral-50;
+    @apply text-rose-400;
 }

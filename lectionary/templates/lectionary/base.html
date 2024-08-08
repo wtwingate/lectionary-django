@@ -1,26 +1,28 @@
 {% load static %}
-<!doctype html>
-<html class="bg-neutral-200" lang="en">
+<!DOCTYPE html>
+<html class="bg-neutral-300" lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{% static 'src/output.css' %}" />
-        <title>{% block title %}Lectionary{% endblock %}</title>
+        <title>
+            {% block title %}Lectionary{% endblock %}
+        </title>
     </head>
-    <body
-        class="mx-auto min-h-screen min-w-fit max-w-5xl bg-neutral-50 text-neutral-800 shadow-xl"
-    >
-        <header
-            class="flex h-24 flex-row items-center justify-between bg-red-800 px-12 text-2xl text-neutral-50"
-        >
-            <a href="{% url 'index' %}">lectionary2019.com</a>
+    <body class="mx-auto max-w-5xl bg-neutral-50 p-8 text-neutral-950 shadow-2xl">
+        <header class="flex flex-row justify-between text-xl">
+            <span>
+                <a href="{% url 'index' %}">lectionary2019.com</a>
+            </span>
             <span class="flex flex-row gap-4">
                 <a href="{% url 'index' %}">Home</a>
                 <a href="{% url 'about' %}">About</a>
             </span>
         </header>
-        <main class="mx-auto max-w-3xl">{% block content %}{% endblock %}</main>
-        <footer class="py-8">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
             <p class="text-center">Made with ❤️ by William Wingate.</p>
         </footer>
     </body>

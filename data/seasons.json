@@ -1,0 +1,426 @@
+{
+    "First Sunday of Advent": {
+        "season": "Advent",
+        "color": "blue"
+    },
+    "Second Sunday of Advent": {
+        "season": "Advent",
+        "color": "blue"
+    },
+    "Third Sunday of Advent": {
+        "season": "Advent",
+        "color": "rose"
+    },
+    "Fourth Sunday of Advent": {
+        "season": "Advent",
+        "color": "blue"
+    },
+    "Christmas Day": {
+        "season": "Christmas",
+        "color": "white"
+    },
+    "First Sunday after Christmas": {
+        "season": "Christmas",
+        "color": "white"
+    },
+    "Second Sunday after Christmas": {
+        "season": "Christmas",
+        "color": "white"
+    },
+    "The Epiphany": {
+        "season": "Epiphany",
+        "color": "white"
+    },
+    "First Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Second Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Third Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Fourth Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Fifth Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Sixth Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Seventh Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Eighth Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Second to Last Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "green"
+    },
+    "Last Sunday after Epiphany": {
+        "season": "Epiphany",
+        "color": "white"
+    },
+    "Ash Wednesday": {
+        "season": "Lent",
+        "color": "violet"
+    },
+    "First Sunday in Lent": {
+        "season": "Lent",
+        "color": "violet"
+    },
+    "Second Sunday in Lent": {
+        "season": "Lent",
+        "color": "violet"
+    },
+    "Third Sunday in Lent": {
+        "season": "Lent",
+        "color": "violet"
+    },
+    "Fourth Sunday in Lent": {
+        "season": "Lent",
+        "color": "rose"
+    },
+    "Fifth Sunday in Lent": {
+        "season": "Lent",
+        "color": "violet"
+    },
+    "Palm Sunday": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Monday in Holy Week": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Tuesday in Holy Week": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Wednesday in Holy Week": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Maundy Thursday": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Good Friday": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Holy Saturday": {
+        "season": "Lent",
+        "color": "red"
+    },
+    "Easter Day": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Monday in Easter Week": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Tuesday in Easter Week": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Wednesday in Easter Week": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Thursday in Easter Week": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Friday in Easter Week": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Saturday in Easter Week": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Second Sunday of Easter": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Third Sunday of Easter": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Fourth Sunday of Easter": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Fifth Sunday of Easter": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Sixth Sunday of Easter": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Ascension Day": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Sunday after Ascension Day": {
+        "season": "Easter",
+        "color": "white"
+    },
+    "Day of Pentecost": {
+        "season": "Pentecost",
+        "color": "red"
+    },
+    "Trinity Sunday": {
+        "season": "Pentecost",
+        "color": "white"
+    },
+    "Proper 1": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 2": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 3": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 4": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 5": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 6": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 7": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 8": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 9": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 10": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 11": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 12": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 13": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 14": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 15": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 16": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 17": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 18": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 19": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 20": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 21": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 22": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 23": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 24": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 25": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 26": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 27": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 28": {
+        "season": "Pentecost",
+        "color": "green"
+    },
+    "Proper 29": {
+        "season": "Pentecost",
+        "color": "white"
+    },
+    "Saint Andrew": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Thomas": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Stephen": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint John": {
+        "season": null,
+        "color": "white"
+    },
+    "Holy Innocents": {
+        "season": null,
+        "color": "red"
+    },
+    "Holy Name": {
+        "season": null,
+        "color": "white"
+    },
+    "Confession of Saint Peter": {
+        "season": null,
+        "color": "white"
+    },
+    "Conversion of Saint Paul": {
+        "season": null,
+        "color": "white"
+    },
+    "The Presentation": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Matthias": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Joseph": {
+        "season": null,
+        "color": "white"
+    },
+    "The Annunciation": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Mark": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Philip and Saint James": {
+        "season": null,
+        "color": "red"
+    },
+    "The Visitation": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Barnabas": {
+        "season": null,
+        "color": "red"
+    },
+    "Nativity of Saint John the Baptist": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Peter and Saint Paul": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Mary Magdalene": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint James": {
+        "season": null,
+        "color": "red"
+    },
+    "The Transfiguration": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Mary the Virgin": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Bartholomew": {
+        "season": null,
+        "color": "red"
+    },
+    "Holy Cross Day": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Matthew": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Michael and All Angels": {
+        "season": null,
+        "color": "white"
+    },
+    "Saint Luke": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint James of Jerusalem": {
+        "season": null,
+        "color": "red"
+    },
+    "Saint Simon and Saint Jude": {
+        "season": null,
+        "color": "red"
+    },
+    "All Saints' Day": {
+        "season": "Pentecost",
+        "color": "white"
+    }
+}

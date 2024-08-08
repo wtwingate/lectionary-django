@@ -4,12 +4,12 @@ import json
 from django.shortcuts import get_object_or_404, render
 
 from lectionary.models import Day
-from lectionary.services.lectionary import get_lectionary_data
+from lectionary.services.lectionary import Lectionary
 
 
 def index(request):
     start_date = dt.date.today()
-    end_date = start_date + dt.timedelta(weeks=2)
+    end_date = start_date + dt.timedelta(weeks=4)
 
     try:
         format = "%Y-%m-%d"
@@ -18,27 +18,17 @@ def index(request):
     except (TypeError, ValueError):
         pass
 
-    selected_dates = []
+    dates = []
     current_date = start_date
     while current_date <= end_date:
-        selected_dates.append(current_date)
+        dates.append(current_date)
         current_date += dt.timedelta(days=1)
 
-    lectionary_data = []
-    for sd in selected_dates:
-        info = get_lectionary_data(sd)
-        if info is not None:
-            lectionary_data.append(info)
+    calendar = []
+    for date in dates:
+        calendar.append(Lectionary(date))
 
-    lectionary = []
-    for datum in lectionary_data:
-        date, year, season, day_list = datum
-        for name in day_list:
-            matches = Day.objects.filter(name=name, year=year)
-            for day in matches:
-                lectionary.append({"date": date, "day": day})
-
-    return render(request, "lectionary/index.html", {"lectionary": lectionary})
+    return render(request, "lectionary/index.html", {"calendar": calendar})
 
 
 def detail(request, pk):

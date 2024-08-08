@@ -13,23 +13,32 @@ class Day(models.Model):
     """
 
     class Year(models.TextChoices):
-        A = ("A", "Year A")
-        B = ("B", "Year B")
-        C = ("C", "Year C")
+        A = "A"
+        B = "B"
+        C = "C"
 
     class Season(models.TextChoices):
-        ADVENT = ("AD", "Advent")
-        CHRISTMAS = ("CH", "Christmas")
-        EPIPHANY = ("EP", "Epiphany")
-        LENT = ("LE", "Lent")
-        EASTER = ("EA", "Easter")
-        PENTECOST = ("PE", "Pentecost")
+        ADVENT = "Advent"
+        CHRISTMAS = "Christmas"
+        EPIPHANY = "Epiphany"
+        LENT = "Lent"
+        EASTER = "Easter"
+        PENTECOST = "Pentecost"
+
+    class Color(models.TextChoices):
+        VIOLET = "violet"
+        WHITE = "white"
+        GREEN = "green"
+        RED = "red"
+        ROSE = "rose"
+        BLUE = "blue"
 
     name = models.CharField(max_length=256)
     alt_name = models.CharField(max_length=256, null=True, blank=True)
     service = models.CharField(max_length=256, null=True, blank=True)
-    year = models.CharField(max_length=1, choices=Year)
-    season = models.CharField(max_length=2, choices=Season, null=True, blank=True)
+    year = models.CharField(max_length=16, choices=Year)
+    season = models.CharField(max_length=16, choices=Season, null=True, blank=True)
+    color = models.CharField(max_length=16, choices=Color, null=True, blank=True)
 
     class Meta:
         indexes = [models.Index(fields=["name"])]
@@ -50,51 +59,45 @@ class Lesson(models.Model):
     """
 
     reference = models.CharField(max_length=256)
-    day = models.ForeignKey(Day, on_delete=models.CASCADE)
-    esv_html = models.TextField(null=True, blank=True)
-    esv_text = models.TextField(null=True, blank=True)
-    psalm_html = models.TextField(null=True, blank=True)
-    psalm_text = models.TextField(null=True, blank=True)
+    days = models.ManyToManyField(Day)
+    html = models.TextField(null=True, blank=True)
+    text = models.TextField(null=True, blank=True)
 
     def get_html(self):
         if self.reference.startswith("Psalm"):
             self.psalm_cache()
-            return self.psalm_html
         else:
             self.esv_cache()
-            return self.esv_html
+        return self.html
 
     def get_text(self):
         if self.reference.startswith("Psalm"):
             self.psalm_cache()
-            return self.psalm_text
         else:
             self.esv_cache()
-            return self.esv_text
+        return self.text
 
     def psalm_cache(self):
-        if self.psalm_html and self.psalm_text:
+        if self.html and self.text:
             return
 
         psalm_num = parse_psalm_num(self.reference)
         psalm = get_object_or_404(Psalm, number=psalm_num)
-        self.psalm_html = psalm.get_html(self.reference)
-        self.psalm_text = psalm.get_text(self.reference)
+        self.html = psalm.get_html(self.reference)
+        self.text = psalm.get_text(self.reference)
         self.save()
 
     def esv_cache(self):
-        if self.esv_html and self.esv_text:
+        if self.html and self.text:
             return
 
-        self.esv_html = get_esv_html(self.reference)
-        self.esv_text = get_esv_text(self.reference)
+        self.html = get_esv_html(self.reference)
+        self.text = get_esv_text(self.reference)
         self.save()
 
     def clear_cache(self):
-        self.esv_html = None
-        self.esv_text = None
-        self.psalm_html = None
-        self.psalm_text = None
+        self.html = None
+        self.text = None
         self.save()
 
     def __str__(self):

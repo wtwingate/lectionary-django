@@ -1,5 +1,6 @@
 import datetime as dt
 import json
+import logging
 
 from django.shortcuts import get_object_or_404, render
 
@@ -8,15 +9,26 @@ from lectionary.services.lectionary import Lectionary
 
 
 def index(request):
-    start_date = dt.date.today()
-    end_date = start_date + dt.timedelta(weeks=4)
+    logger = logging.getLogger("django")
+
+    start_date = None
+    end_date = None
+
+    date_format = "%Y-%m-%d"
 
     try:
-        format = "%Y-%m-%d"
-        start_date = dt.datetime.strptime(request.GET.get("start"), format).date()
-        end_date = dt.datetime.strptime(request.GET.get("end"), format).date()
-    except (TypeError, ValueError):
-        pass
+        start_date = dt.datetime.strptime(request.GET.get("start"), date_format).date()
+    except (TypeError, ValueError) as e:
+        logger.error(e)
+    try:
+        end_date = dt.datetime.strptime(request.GET.get("end"), date_format).date()
+    except (TypeError, ValueError) as e:
+        logger.error(e)
+
+    if not start_date:
+        start_date = dt.date.today()
+    if not end_date:
+        end_date = start_date + dt.timedelta(weeks=4)
 
     dates = []
     current_date = start_date

@@ -6,7 +6,7 @@
 {% block content %}
     <h1 class="bg-{{ day.color }} py-12 my-6 text-center text-5xl font-semibold">
         {{ day.name }}
-        {% if day.service %}{{ day.service }}{% endif %}
+        {% if day.service %}: {{ day.service }}{% endif %}
     </h1>
     <button class="mx-auto my-6 block w-fit rounded-xl bg-neutral-200 px-8 py-2 font-bold text-neutral-950 shadow-md hover:bg-neutral-300"
             id="copy-button">Copy lessons to clipboard</button>
@@ -14,12 +14,10 @@
         <h2 class="text-2xl font-semibold mt-8 text-{{ day.color }}">{{ lesson.ref }}</h2>
         <div class="[&>p]:my-4 [&>p]:text-balance">{{ lesson.html | safe }}</div>
     {% endfor %}
-    <p class="mx-auto my-4 max-w-prose text-center text-sm text-balance italic">
-        Psalm quotations are from The New Coverdale Psalter Copyright © 2019 by the
-        Anglican Church in North America. Other Scripture quotations are from The
-        ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by
-        Crossway, a publishing ministry of Good News Publishers. Used by permission.
-        All rights reserved.
+    <p class="mx-auto my-4 max-w-prose text-balance text-center text-sm italic">
+        Scripture quotations are from The ESV® Bible (The Holy Bible, English
+        Standard Version®), © 2001 by Crossway, a publishing ministry of Good News
+        Publishers. Used by permission. All rights reserved.
     </p>
     <script>var texts = JSON.parse("{{ texts | escapejs }}");</script>
     <script src="{% static 'lectionary/clipboard.js' %}"></script>

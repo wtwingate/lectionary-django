@@ -4,16 +4,16 @@
 {% endblock title %}
 {% block content %}
     <h1 class="my-12 text-center text-5xl font-semibold">The Lectionary</h1>
-    <form class="flex flex-wrap items-center justify-center gap-4 rounded-2xl bg-neutral-200 px-8 py-4 shadow-xl"
+    <form class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 rounded-2xl bg-neutral-200 px-8 py-4 shadow-xl"
           method="get">
-        <span class="w-full flex justify-between items-center">
+        <span class="flex max-w-min items-center justify-between gap-4">
             <label class="font-bold" for="start">Start</label>
             <input class="rounded-sm border-2 border-solid border-neutral-950 bg-neutral-50 px-2 text-neutral-950"
                    type="date"
                    id="start"
                    name="start" />
         </span>
-        <span class="w-full flex justify-between items-center">
+        <span class="flex max-w-min items-center justify-between gap-4">
             <label class="font-bold" for="end">End</label>
             <input class="rounded-sm border-2 border-solid border-neutral-950 bg-neutral-50 px-2 text-neutral-950"
                    type="date"
@@ -23,19 +23,19 @@
         <button class="rounded-xl bg-neutral-600 px-8 py-2 font-bold text-neutral-50 shadow-md hover:bg-neutral-700"
                 type="submit">Search</button>
     </form>
-    <section class="w-full my-12 flex flex-col gap-6">
+    <section class="my-12 flex w-full flex-col gap-6">
         {% for date, value in calendar.items %}
             <div class="w-full overflow-hidden rounded-2xl bg-neutral-200 shadow-xl">
                 <h2 class="my-2 text-center text-xl font-semibold">{{ date }}</h2>
                 {% for item in value %}
-                    <div class="py-2 px-8 bg-{{ item.day.color }}">
+                    <div class="sm:grid sm:grid-cols-2 py-4 px-8 bg-{{ item.day.color }}">
                         <div>
-                            <h3 class="text-xl font-semibold underline">
+                            <h3 class="mb-2 text-xl font-semibold underline">
                                 <a href="{{ item.day.get_absolute_url }}">{{ item.day.name }}
                                     {% if item.day.service %}: {{ item.day.service }}{% endif %}
                                 </a>
                             </h3>
-                            <p class="italic">{{ item.season }} — Year {{ item.year }}</p>
+                            <p class="mb-2 italic">{{ item.season }} — Year {{ item.year }}</p>
                         </div>
                         <div>
                             <ul>

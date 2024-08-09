@@ -13,22 +13,24 @@
             {% endblock title %}
         </title>
     </head>
-    <body class="mx-auto max-w-4xl bg-neutral-50 py-8 px-4 sm:px-8 md:px-16 lg:px-32 text-neutral-950 shadow-2xl">
-        <header class="flex flex-row justify-between text-lg">
-            <span>
-                <a href="{% url 'index' %}">lectionary2019.com</a>
-            </span>
-            <span class="flex flex-row gap-4">
-                <a href="{% url 'index' %}">Home</a>
-                <a href="{% url 'about' %}">About</a>
-            </span>
-        </header>
-        <main>
-            {% block content %}
-            {% endblock content %}
-        </main>
-        <footer class="mt-8">
-            <p class="text-center">Made with ❤️ by William Wingate.</p>
-        </footer>
+    <body class="mx-auto max-w-6xl bg-neutral-50 text-neutral-950 shadow-2xl">
+        <div class="mx-auto max-w-3xl p-8">
+            <header class="flex flex-row justify-between text-lg font-semibold">
+                <span>
+                    <a href="{% url 'index' %}">lectionary2019.com</a>
+                </span>
+                <span class="flex flex-row gap-4">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'about' %}">About</a>
+                </span>
+            </header>
+            <main>
+                {% block content %}
+                {% endblock content %}
+            </main>
+            <footer class="mt-8">
+                <p class="text-center">Made with ❤️ by William Wingate.</p>
+            </footer>
+        </div>
     </body>
 </html>

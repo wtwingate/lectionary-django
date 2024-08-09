@@ -1,17 +1,17 @@
 {% extends "lectionary/base.html" %}
 {% block content %}
     <article class="mx-auto max-w-3xl [&>p]:my-4">
-        <h1 class="mb-12 mt-24 text-center text-6xl font-semibold">About</h1>
+        <h1 class="my-12 text-center text-5xl font-semibold">About</h1>
         <p>
             The primary purpose of this site is to provide a convenient way for
-            pastors, worship leaders, and church administrators to get accurate
-            information about upcoming Sundays, Holy Days, and Commemorations,
-            as found in the
-            <a class="underline" href="https://bcp2019.anglicanchurch.net/">Book of Common Prayer 2019</a>. In particular, this site provides a number of features that should
+            pastors, worship leaders, and church admins to get accurate information
+            about upcoming days in the Anglican lectionary, as found in the
+            <a class="underline" href="https://bcp2019.anglicanchurch.net/">Book of Common Prayer 2019</a>.
+            In particular, this site provides a number of features that should
             prove useful for those who are responsible for creating bulletins and
             Scripture inserts for their local congregations.
         </p>
-        <h2 class="mx-auto mt-8 max-w-3xl text-2xl font-semibold">How to Use</h2>
+        <h2 class="mt-8 text-2xl font-semibold">How to Use</h2>
         <p>
             Most of the site should be fairly self-explanatory. By default, the main
             page shows all the upcoming holy days over the next two weeks. If you
@@ -34,22 +34,21 @@
             Quotations of the apocrypha are taken from the New Revised Standard
             Version.
         </p>
-        <h2 class="mx-auto mb-4 mt-8 max-w-3xl text-2xl font-semibold">Coming Soon</h2>
-        <ul>
+        <h2 class="mt-8 text-2xl font-semibold">Coming Soon</h2>
+        <ul class="my-4">
             <li class="list-inside list-disc">Traditional language Scripture, Psalter, and collects.</li>
             <li class="list-inside list-disc">Allow users to choose between alternate readings.</li>
             <li class="list-inside list-disc">Automagic PDF generation for Scripture inserts.</li>
         </ul>
-        <h2 class="mx-auto mb-4 mt-8 max-w-3xl text-2xl font-semibold">Want to Help?</h2>
+        <h2 class="mt-8 text-2xl font-semibold">Want to Help?</h2>
         <p>
             The source code for this website can be found on my
-            <a class="underline" href="https://github.com/wtwingate/lectionary">GitHub</a>. If you
-            find any bugs, please feel free to create an issue there and I'll get to
-            it as soon as possible.
+            <a class="underline" href="https://github.com/wtwingate/lectionary">GitHub</a>. If you find any bugs, please feel free to create an issue there and
+            I'll get to it as soon as possible.
         </p>
         <p>
             If you're a programmer, data-cruncher, or otherwise meticulous person,
             suggestions, contributions, and pull requests are more than welcome!
         </p>
     </article>
-{% endblock %}
+{% endblock content %}

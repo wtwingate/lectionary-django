@@ -27,7 +27,7 @@ def index(request):
     calendar = {}
     for date in dates:
         lectionary = Lectionary(date)
-        hr_date = date.strftime("%A — %D")
+        hr_date = date.strftime("%A, %D")
         calendar[hr_date] = []
         for name in lectionary.names:
             for day in Day.objects.filter(name=name, year=lectionary.year):

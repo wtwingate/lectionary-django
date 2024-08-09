@@ -2,7 +2,7 @@ import re
 
 
 def parse_psalm_num(reference):
-    return re.match(r"Psalm (\d+):?.*", reference)[1]
+    return int(re.match(r"Psalm (\d+):?.*", reference)[1])
 
 
 def parse_verse_nums(reference):

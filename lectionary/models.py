@@ -40,6 +40,7 @@ class Day(models.Model):
     season = models.CharField(max_length=16, choices=Season, null=True, blank=True)
     color = models.CharField(max_length=16, choices=Color, null=True, blank=True)
     lessons = models.ManyToManyField("Lesson", through="DayLesson")
+    collects = models.ManyToManyField("Collect", through="DayCollect")
 
     def __str__(self):
         if self.service is not None:
@@ -115,5 +116,12 @@ class Collect(models.Model):
     in the lectionary.
     """
 
-    day = models.ForeignKey("Day", on_delete=models.CASCADE)
     text = models.TextField()
+
+
+class DayCollect(models.Model):
+    """A model representing the many-to-many relationship between
+    Days and Collects."""
+
+    day = models.ForeignKey("Day", on_delete=models.CASCADE)
+    collect = models.ForeignKey("Collect", on_delete=models.CASCADE)

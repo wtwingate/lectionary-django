@@ -75,10 +75,13 @@ def detail(request, pk):
             }
         )
 
+    collects = [collect.text for collect in day.collects.all()]
+
     texts = json.dumps("\n".join([lesson["text"] for lesson in lessons]))
 
     context = {
         "day": day,
+        "collects": collects,
         "lessons": lessons,
         "texts": texts,
     }

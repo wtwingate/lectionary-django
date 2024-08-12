@@ -10,9 +10,11 @@
     </h1>
     <button class="mx-auto my-6 block w-fit rounded-xl bg-neutral-200 px-8 py-2 font-bold text-neutral-950 shadow-md hover:bg-neutral-300"
             id="copy-button">Copy lessons to clipboard</button>
+    <h2 class="text-2xl font-semibold mt-8 text-{{ day.color }}">Collect of the Day</h2>
+    {% for collect in collects %}<p class="my-4">{{ collect }}</p>{% endfor %}
     {% for lesson in lessons %}
         <h2 class="text-2xl font-semibold mt-8 text-{{ day.color }}">{{ lesson.ref }}</h2>
-        <div class="[&>p]:my-4 [&>p]:text-balance">{{ lesson.html | safe }}</div>
+        <div class="[&>p]:my-4">{{ lesson.html | safe }}</div>
     {% endfor %}
     <p class="mx-auto my-4 max-w-prose text-balance text-center text-sm italic">
         Scripture quotations are from The ESV® Bible (The Holy Bible, English

@@ -15,6 +15,10 @@
         "season": "Advent",
         "color": "blue"
     },
+    "Christmas Eve": {
+        "season": "Christmas",
+        "color": "white"
+    },
     "Christmas Day": {
         "season": "Christmas",
         "color": "white"
@@ -122,6 +126,10 @@
     "Holy Saturday": {
         "season": "Lent",
         "color": "red"
+    },
+    "Easter Eve": {
+        "season": "Easter",
+        "color": "white"
     },
     "Easter Day": {
         "season": "Easter",

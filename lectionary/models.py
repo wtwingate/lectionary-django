@@ -108,3 +108,12 @@ class DayLesson(models.Model):
 
     day = models.ForeignKey("Day", on_delete=models.CASCADE)
     lesson = models.ForeignKey("Lesson", on_delete=models.CASCADE)
+
+
+class Collect(models.Model):
+    """A model representing the collect appointed for a given day
+    in the lectionary.
+    """
+
+    day = models.ForeignKey("Day", on_delete=models.CASCADE)
+    text = models.TextField()

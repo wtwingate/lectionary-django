@@ -13,7 +13,7 @@ def day_lesson_data(apps, _):
         data = json.load(f)
 
     for day_name, val in data.items():
-        if day_name == "Christmas Day" or day_name == "Easter Day":
+        if day_name.startswith("Christmas") or day_name.startswith("Easter"):
             for service_name, years in val.items():
                 for year_name, lessons in years.items():
                     day = Day(name=day_name, year=year_name, service=service_name)

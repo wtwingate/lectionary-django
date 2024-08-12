@@ -57,6 +57,7 @@ class Lectionary:
         names.append(self._check_holy_week())
         names.append(self._check_easter_week())
         names.append(self._check_sundays())
+        names.append(self._check_principal_eves())
         names.append(self._check_red_letter_days())
         return [n for n in names if n]
 
@@ -75,6 +76,12 @@ class Lectionary:
             return "The Epiphany"
         if self.date == dt.date(self.date.year, 11, 1):
             return "All Saints' Day"
+
+    def _check_principal_eves(self) -> str | None:
+        if self.date == self.moveable["easter_day"] - dt.timedelta(days=1):
+            return "Easter Eve"
+        if self.date == dt.date(self.date.year, 12, 24):
+            return "Christmas Eve"
 
     def _check_ash_wednesday(self) -> str | None:
         if self.date == self.moveable["ash_wednesday"]:

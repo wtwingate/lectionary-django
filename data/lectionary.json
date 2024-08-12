@@ -79,6 +79,68 @@
             "Gospel": ["Luke 1:39-56"]
         }
     },
+    "Christmas Eve": {
+        "I": {
+            "A": {
+                "First Lesson": ["Isaiah 9:1-7"],
+                "Psalm": ["Psalm 96"],
+                "Second Lesson": ["Titus 2:11-14"],
+                "Gospel": ["Luke 2:1-14, (15-20)"]
+            },
+            "B": {
+                "First Lesson": ["Isaiah 9:1-7"],
+                "Psalm": ["Psalm 96"],
+                "Second Lesson": ["Titus 2:11-14"],
+                "Gospel": ["Luke 2:1-14, (15-20)"]
+            },
+            "C": {
+                "First Lesson": ["Isaiah 9:1-7"],
+                "Psalm": ["Psalm 96"],
+                "Second Lesson": ["Titus 2:11-14"],
+                "Gospel": ["Luke 2:1-14, (15-20)"]
+            }
+        },
+        "II": {
+            "A": {
+                "First Lesson": ["Isaiah 62:6-12"],
+                "Psalm": ["Psalm 97"],
+                "Second Lesson": ["Titus 3:4-7"],
+                "Gospel": ["Luke 2:(1-14), 15-20"]
+            },
+            "B": {
+                "First Lesson": ["Isaiah 62:6-12"],
+                "Psalm": ["Psalm 97"],
+                "Second Lesson": ["Titus 3:4-7"],
+                "Gospel": ["Luke 2:(1-14), 15-20"]
+            },
+            "C": {
+                "First Lesson": ["Isaiah 62:6-12"],
+                "Psalm": ["Psalm 97"],
+                "Second Lesson": ["Titus 3:4-7"],
+                "Gospel": ["Luke 2:(1-14), 15-20"]
+            }
+        },
+        "III": {
+            "A": {
+                "First Lesson": ["Isaiah 52:7-12"],
+                "Psalm": ["Psalm 98"],
+                "Second Lesson": ["Hebrews 1:1-12"],
+                "Gospel": ["John 1:1-18"]
+            },
+            "B": {
+                "First Lesson": ["Isaiah 52:7-12"],
+                "Psalm": ["Psalm 98"],
+                "Second Lesson": ["Hebrews 1:1-12"],
+                "Gospel": ["John 1:1-18"]
+            },
+            "C": {
+                "First Lesson": ["Isaiah 52:7-12"],
+                "Psalm": ["Psalm 98"],
+                "Second Lesson": ["Hebrews 1:1-12"],
+                "Gospel": ["John 1:1-18"]
+            }
+        }
+    },
     "Christmas Day": {
         "I": {
             "A": {
@@ -676,6 +738,61 @@
             "Gospel": ["Matthew 27:57-66", "John 19:38-42"]
         }
     },
+    "Easter Eve": {
+        "The Great Vigil": {
+            "A": {
+                "Old Testament": [
+                    "Genesis 1:1-2:3",
+                    "Genesis 3",
+                    "Genesis 7:1-5, 11-18; 8:6-20; 9:8-13",
+                    "Genesis 22:1-18",
+                    "Exodus 14:10-15:1",
+                    "Isaiah 4:2-6",
+                    "Isaiah 55:1-11",
+                    "Ezekiel 36:24-28",
+                    "Ezekiel 37:1-14",
+                    "Daniel 3:1-28",
+                    "Jonah 1:1-2:10",
+                    "Zephaniah 3:12-20"
+                ],
+                "New Testament": ["Romans 6:3-11", "Matthew 28:1-10"]
+            },
+            "B": {
+                "Old Testament": [
+                    "Genesis 1:1-2:3",
+                    "Genesis 3",
+                    "Genesis 7:1-5, 11-18; 8:6-20; 9:8-13",
+                    "Genesis 22:1-18",
+                    "Exodus 14:10-15:1",
+                    "Isaiah 4:2-6",
+                    "Isaiah 55:1-11",
+                    "Ezekiel 36:24-28",
+                    "Ezekiel 37:1-14",
+                    "Daniel 3:1-28",
+                    "Jonah 1:1-2:10",
+                    "Zephaniah 3:12-20"
+                ],
+                "New Testament": ["Romans 6:3-11", "Matthew 28:1-10"]
+            },
+            "C": {
+                "Old Testament": [
+                    "Genesis 1:1-2:3",
+                    "Genesis 3",
+                    "Genesis 7:1-5, 11-18; 8:6-20; 9:8-13",
+                    "Genesis 22:1-18",
+                    "Exodus 14:10-15:1",
+                    "Isaiah 4:2-6",
+                    "Isaiah 55:1-11",
+                    "Ezekiel 36:24-28",
+                    "Ezekiel 37:1-14",
+                    "Daniel 3:1-28",
+                    "Jonah 1:1-2:10",
+                    "Zephaniah 3:12-20"
+                ],
+                "New Testament": ["Romans 6:3-11", "Matthew 28:1-10"]
+            }
+        }
+    },
     "Easter Day": {
         "The Great Vigil": {
             "A": {
@@ -974,7 +1091,10 @@
     },
     "Fourth Sunday of Easter": {
         "A": {
-            "First Lesson": ["Acts 6:1-9; 7:2a, 51-60", "Nehemiah 9:(1-3), 6-15"],
+            "First Lesson": [
+                "Acts 6:1-9; 7:2a, 51-60",
+                "Nehemiah 9:(1-3), 6-15"
+            ],
             "Psalm": ["Psalm 23"],
             "Second Lesson": ["1 Peter 2:13-25"],
             "Gospel": ["John 10:1-10"]

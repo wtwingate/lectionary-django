@@ -8,7 +8,6 @@ The purpose of this app is to provide pastors, music directors, and church admin
 
 ## Coming Soon
 
--   Collect of the Day
 -   Readings from the Apocrypha
 -   Alternate lesson options
 -   Traditional language versions

@@ -5,30 +5,58 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('lectionary', '0003_season_color_data'),
+        ("lectionary", "0003_season_color_data"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Collect',
+            name="Collect",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='DayCollect',
+            name="DayCollect",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('collect', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='lectionary.collect')),
-                ('day', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='lectionary.day')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "collect",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="lectionary.collect",
+                    ),
+                ),
+                (
+                    "day",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="lectionary.day"
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='day',
-            name='collects',
-            field=models.ManyToManyField(through='lectionary.DayCollect', to='lectionary.collect'),
+            model_name="day",
+            name="collects",
+            field=models.ManyToManyField(
+                through="lectionary.DayCollect", to="lectionary.collect"
+            ),
         ),
     ]
